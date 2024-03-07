@@ -4,9 +4,9 @@ public class Menu extends AbstractMenuView{
 
     public Menu() {
         super(new String[]{
-                "1",
-                "2",
-                "3",
+                "1 - Usuários",
+                "2 - Veículos",
+                "3 - Locações",
                 "0 - Sair\n"
         });
     }
