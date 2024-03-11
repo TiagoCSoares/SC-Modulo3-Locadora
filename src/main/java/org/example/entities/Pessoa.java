@@ -1,21 +1,18 @@
 package org.example.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Pessoa {
 
-    private final String id;
     private String nome;
     private String endereco;
 
-    //private List<Carro> carros;
+    private List<Veiculo> carros = new ArrayList<>();
 
-    public Pessoa(String id, String nome, String endereco) {
-        this.id = id;
+    public Pessoa(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getNome() {
@@ -34,11 +31,11 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
-    // public void associarCarro(Carro carro) {
-    //     carros.add(carro);
-    // }
+    public void associarVeiculo(Veiculo carro) {
+         carros.add(carro);
+    }
 
-    // public void desassociarCarro(Carro carro) {
-    //     carros.remove(carro);
-    // }
+    public void desassociarVeiculo(Veiculo carro) {
+         carros.remove(carro);
+    }
 }

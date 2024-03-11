@@ -1,7 +1,12 @@
 package org.example.entities;
 
 public class PessoaJuridica extends Pessoa{
-        public PessoaJuridica(String id, String nome, String endereco) {
-            super(id, nome, endereco);
-        }
+    private final String cnpj;
+    private String dataNascimento;
+
+    public PessoaJuridica(String cnpj, String nome, String endereco, String dataNascimento) {
+        super(nome, endereco);
+        this.cnpj = cnpj;
+        this.dataNascimento = dataNascimento;
+    }
 }

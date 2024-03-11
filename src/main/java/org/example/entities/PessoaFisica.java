@@ -6,10 +6,25 @@ import java.time.format.DateTimeFormatter;
 
 public class PessoaFisica extends Pessoa {
 
+    private final String cpf;
     private String dataNascimento;
 
-    public PessoaFisica(String id, String nome, String endereco, String dataNascimento) {
-        super(id, nome, endereco);
+    public PessoaFisica(String cpf, String nome, String endereco, String dataNascimento) {
+        super(nome, endereco);
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+    }
+
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
