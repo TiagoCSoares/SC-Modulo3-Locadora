@@ -3,20 +3,21 @@ package org.example.entities;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
 
-    private final String cpf;
+    private final Long cpf;
     private String dataNascimento;
 
-    public PessoaFisica(String cpf, String nome, String endereco, String dataNascimento) {
+    public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento) {
         super(nome, endereco);
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
     }
 
 
-    public String getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
@@ -26,6 +27,18 @@ public class PessoaFisica extends Pessoa {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof PessoaFisica that)) return false;
+        return Objects.equals(getCpf(), that.getCpf());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCpf());
     }
 
     private int calcularIdade() {

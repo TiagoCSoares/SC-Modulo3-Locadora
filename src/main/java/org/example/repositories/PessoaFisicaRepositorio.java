@@ -21,7 +21,7 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio{
     @Override
     protected Boolean filtraPorId(Object objeto, Long id) {
         PessoaFisica pessoaFisica = (PessoaFisica) objeto;
-        return pessoaFisica.getId().equals(id);
+        return pessoaFisica.getCpf().equals(id);
     }
 
     @Override

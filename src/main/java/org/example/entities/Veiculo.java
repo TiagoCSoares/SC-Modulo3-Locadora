@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import java.time.LocalDateTime;
+
 public abstract class Veiculo {
     private String placa;
     private final String tipo;
@@ -7,6 +9,8 @@ public abstract class Veiculo {
     private final int ano;
     private String cor;
     private Pessoa locador;
+    private LocalDateTime dataInicio;
+    //private String dataFim;
 
 
     public Veiculo(String placa, String marca, int ano, String cor, String tipo) {
@@ -50,12 +54,25 @@ public abstract class Veiculo {
         return locador;
     }
 
-
-
-    private void associarLocador(Pessoa locador) {
+    public void setLocador(Pessoa locador) {
         this.locador = locador;
     }
-    private void desassociarLocador() {
-        this.locador = null;
+
+    public LocalDateTime getDataInicio() {
+        return dataInicio;
     }
+
+
+    public void alugarVeiculo(Pessoa locador) {
+        this.locador = locador;
+        this.dataInicio = LocalDateTime.now();
+    }
+
+    public void devolverVeiculo() {
+        this.locador = null;
+        this.dataInicio = null;
+    }
+
+
+    public abstract Double calcularValor();
 }
