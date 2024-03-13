@@ -17,9 +17,8 @@ public class CadastrarPessoaFisica implements CadastrarCliente{
         System.out.println("Digite o endereço:");
         String endereco = scanner.nextLine();
 
-        System.out.println("Digite o CPF:");
-        String cpfString = scanner.nextLine();
-        Long cpf = Long.parseLong(cpfString);
+        System.out.println("Digite o CPF (Apenas Digitos):");
+        Long cpf = scanner.nextLong();
 
         System.out.println("Digite a data de nascimento:");
         String dataNascimento = scanner.nextLine();

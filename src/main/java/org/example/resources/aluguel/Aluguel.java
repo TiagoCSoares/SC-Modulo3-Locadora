@@ -5,27 +5,18 @@ import org.example.entities.Veiculo;
 
 public class Aluguel {
 
-    public void alugarVeiculo(Pessoa locador, Veiculo veiculo) {
-        veiculo.alugarVeiculo(locador);
-        veiculo.setDataInicio();
-    }
 
-
-    public void alugarVeiculo(Pessoa locador, Veiculo veiculo) {
-        veiculo.alugarVeiculo(locador);
+    public void alugarVeiculo(Veiculo veiculo, Pessoa locador, String dataInicio) {
+        veiculo.alugarVeiculo(locador, dataInicio);
         locador.associarVeiculo(veiculo);
     }
 
-    public void devolverVeiculo(Veiculo veiculo, Pessoa pessoa, String dataFim) {
+    public Double devolverVeiculo(Veiculo veiculo, Pessoa locador, String dataFim) {
+        Double valor = veiculo.calcularValor(String dataFim);
+
         veiculo.devolverVeiculo();
+        locador.desassociarVeiculo(veiculo);
 
-        Double valor = veiculo.calcularValor(dataFim);
-
-        pessoa.desassociarVeiculo(veiculo);
-    }
-
-    public void devolverVeiculo(Veiculo veiculo, Pessoa pessoa) {
-        veiculo.devolverVeiculo();
-        pessoa.desassociarVeiculo(veiculo);
+        return valor;
     }
 }

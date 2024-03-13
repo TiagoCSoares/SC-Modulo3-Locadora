@@ -8,13 +8,13 @@ public class VeiculoPequeno extends Veiculo{
     }
 
     @Override
-    public Double calcularValor() {
-        LocalDateTime dataAtual = LocalDateTime.now();
-        LocalDateTime dataInicio = getDataInicio();
-
-        long dias = dataInicio.getDayOfYear() - dataAtual.getDayOfYear();
+    public Double calcularValor(String dataFim) {
+        String dataInicio = getDataInicio();
 
 
-        return null;
+        //long dias = dataFim.getSecond() - dataInicio.getSecond();
+
+
+        return 20.0;
     }
 }

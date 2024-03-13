@@ -11,15 +11,13 @@ public class ClienteView extends AbstractMenuView {
                 "2 - Listar Clientes",
                 "3 - Buscar Cliente por CPF/CNPJ",
                 "4 - Atualizar Cliente",
-                "5 - Alugar Veículo",
-                "6 - Devolver Veículo",
                 "0 - Voltar\n"
         });
     }
 
     @Override
     protected Boolean validOption(Integer option) {
-        return option >= 0 && option <= 6;
+        return option >= 0 && option <= 4;
     }
 
     @Override
@@ -27,8 +25,17 @@ public class ClienteView extends AbstractMenuView {
         switch (option) {
             case 1:
                 new CadastrarClienteView().execute();
+                break;
+            case 2:
+                //new ListarClientesView().execute();
+                System.out.println("LIstando clientes");
+                break;
+            case 3:
+                //new BuscarClienteView().execute();
+                System.out.println("Buscando cliente");
+                break;
             case 0:
-                System.out.println("Saindo...");
+                break;
         }
         execute();
     }

@@ -9,7 +9,7 @@ public abstract class Veiculo {
     private final int ano;
     private String cor;
     private Pessoa locador;
-    private LocalDateTime dataInicio;
+    private String dataInicio;
     //private String dataFim;
 
 
@@ -58,14 +58,14 @@ public abstract class Veiculo {
         this.locador = locador;
     }
 
-    public LocalDateTime getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
 
-    public void alugarVeiculo(Pessoa locador) {
+    public void alugarVeiculo(Pessoa locador, String dataInicio) {
         this.locador = locador;
-        this.dataInicio = LocalDateTime.now();
+        this.dataInicio = dataInicio;
     }
 
     public void devolverVeiculo() {
@@ -74,5 +74,5 @@ public abstract class Veiculo {
     }
 
 
-    public abstract Double calcularValor();
+    public abstract Double calcularValor(String dataFim);
 }
