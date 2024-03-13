@@ -3,12 +3,12 @@ package org.example.view.cliente;
 import org.example.services.PessoaFisicaService;
 import org.example.view.AbstractMenuView;
 
-public class ClienteView extends AbstractMenuView {
+public class ClienteMenu extends AbstractMenuView {
 
     private PessoaFisicaService pessoaFisicaService;
 
 
-    public ClienteView(PessoaFisicaService pessoaFisicaService) {
+    public ClienteMenu(PessoaFisicaService pessoaFisicaService) {
         super(new String[] {
                 "1 - Cadastrar Cliente",
                 "2 - Listar Clientes",

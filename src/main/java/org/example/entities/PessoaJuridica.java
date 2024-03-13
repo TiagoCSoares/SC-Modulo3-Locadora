@@ -9,4 +9,15 @@ public class PessoaJuridica extends Pessoa{
         super(nome, endereco, veiculos);
         this.cnpj = cnpj;
     }
+
+    public Long getCnpj() {
+        return cnpj;
+    }
+
+    public String exibirPessoaJuridica() {
+        return String.format("%14L | %20s | % 20s",
+                getCnpj(), getNome(),
+                getEndereco());
+
+    }
 }

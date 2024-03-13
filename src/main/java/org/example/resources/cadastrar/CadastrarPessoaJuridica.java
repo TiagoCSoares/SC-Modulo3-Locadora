@@ -7,6 +7,13 @@ import org.example.entities.PessoaJuridica;
 import java.util.Scanner;
 
 public class CadastrarPessoaJuridica implements CadastrarCliente{
+
+    private PessoaJuridicaService pessoaJuridicaService;
+
+    public CadastrarPessoaJuridica(PessoaJuridicaService pessoaJuridicaService) {
+        this.pessoaJuridicaService = pessoaJuridicaService;
+    }
+
     @Override
     public void cadastrarCliente() {
 
@@ -21,8 +28,7 @@ public class CadastrarPessoaJuridica implements CadastrarCliente{
         System.out.println("Digite o CNPJ (Apenas Digitos):");
         Long cnpj = scanner.nextLong();
 
-        Pessoa pessoa = new PessoaJuridica(cnpj, nome, endereco, null);
-        // TODO: Adicionar no banco de dados
-
+        PessoaJuridica pessoa = new PessoaJuridica(cnpj, nome, endereco, null);
+        pessoaJuridicaService.criar(pessoa);
     }
 }

@@ -1,7 +1,7 @@
 package org.example.view;
 
 import org.example.services.PessoaFisicaService;
-import org.example.view.cliente.ClienteView;
+import org.example.view.cliente.ClienteMenu;
 
 public class Menu extends AbstractMenuView{
 
@@ -26,7 +26,7 @@ public class Menu extends AbstractMenuView{
     protected void executeOption(Integer option) {
         switch (option) {
             case 1:
-                new ClienteView(pessoaFisicaService).execute();
+                new ClienteMenu(pessoaFisicaService).execute();
                 break;
             /*case 2:
                 new VeiculoView().execute();

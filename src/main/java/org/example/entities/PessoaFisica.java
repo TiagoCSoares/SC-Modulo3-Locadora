@@ -53,4 +53,11 @@ public class PessoaFisica extends Pessoa {
 
         return periodo.getYears();
     }
+
+    public String exibirPessoaFisica() {
+        return String.format("%14L | %20s | % 20s | 10s",
+                getCpf(), getNome(),
+                getEndereco(), getDataNascimento());
+
+    }
 }
