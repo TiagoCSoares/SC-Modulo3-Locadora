@@ -1,16 +1,20 @@
 package org.example.view;
 
+import org.example.services.PessoaFisicaService;
 import org.example.view.cliente.ClienteView;
 
 public class Menu extends AbstractMenuView{
 
-    public Menu() {
+    private PessoaFisicaService pessoaFisicaService;
+
+    public Menu(PessoaFisicaService pessoaFisicaService) {
         super(new String[]{
                 "1 - Usuários",
                 "2 - Veículos",
                 "3 - Locações",
                 "0 - Sair\n"
         });
+        this.pessoaFisicaService = pessoaFisicaService;
     }
 
     @Override
@@ -22,7 +26,7 @@ public class Menu extends AbstractMenuView{
     protected void executeOption(Integer option) {
         switch (option) {
             case 1:
-                new ClienteView().execute();
+                new ClienteView(pessoaFisicaService).execute();
                 break;
             /*case 2:
                 new VeiculoView().execute();
@@ -34,5 +38,6 @@ public class Menu extends AbstractMenuView{
                 System.out.println("Saindo...");
                 break;
         }
+        execute();
     }
 }

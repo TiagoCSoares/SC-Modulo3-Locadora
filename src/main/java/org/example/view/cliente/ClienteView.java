@@ -1,11 +1,14 @@
 package org.example.view.cliente;
 
+import org.example.services.PessoaFisicaService;
 import org.example.view.AbstractMenuView;
 
 public class ClienteView extends AbstractMenuView {
 
+    private PessoaFisicaService pessoaFisicaService;
 
-    public ClienteView() {
+
+    public ClienteView(PessoaFisicaService pessoaFisicaService) {
         super(new String[] {
                 "1 - Cadastrar Cliente",
                 "2 - Listar Clientes",
@@ -13,6 +16,7 @@ public class ClienteView extends AbstractMenuView {
                 "4 - Atualizar Cliente",
                 "0 - Voltar\n"
         });
+        this.pessoaFisicaService = pessoaFisicaService;
     }
 
     @Override
@@ -24,18 +28,18 @@ public class ClienteView extends AbstractMenuView {
     protected void executeOption(Integer option) {
         switch (option) {
             case 1:
-                new CadastrarClienteView().execute();
+                new CadastrarClienteView(pessoaFisicaService).execute();
                 break;
             case 2:
-                new ListarClientesView().execute();
-                System.out.println("Listando clientes");
+                new ListarClientesView(pessoaFisicaService).execute();
                 break;
             case 3:
                 new BuscarClienteView().execute();
                 System.out.println("Buscando cliente");
                 break;
             case 0:
-                break;
+                return;
         }
+        execute();
     }
 }

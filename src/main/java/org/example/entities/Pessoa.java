@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pessoa {
-
+    private Long id;
     private String nome;
     private String endereco;
 
-    private List<Veiculo> carros = new ArrayList<>();
+    private List<Veiculo> veiculos;
 
-    public Pessoa(String nome, String endereco) {
+    public Pessoa(String nome, String endereco, List<Veiculo> veiculos) {
         this.nome = nome;
         this.endereco = endereco;
+        this.veiculos = veiculos != null ? veiculos : new ArrayList<>();
     }
 
     public String getNome() {
@@ -31,11 +32,19 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void associarVeiculo(Veiculo carro) {
-         carros.add(carro);
+        veiculos.add(carro);
     }
 
     public void desassociarVeiculo(Veiculo carro) {
-         carros.remove(carro);
+        veiculos.remove(carro);
     }
 }

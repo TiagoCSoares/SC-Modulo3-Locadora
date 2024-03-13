@@ -3,6 +3,7 @@ package org.example.entities;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
@@ -10,8 +11,8 @@ public class PessoaFisica extends Pessoa {
     private final Long cpf;
     private String dataNascimento;
 
-    public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento) {
-        super(nome, endereco);
+    public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento, List<Veiculo> veiculos) {
+        super(nome, endereco, veiculos);
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
     }

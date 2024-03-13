@@ -8,14 +8,14 @@ import org.example.entities.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PessoaFisicaRepositorio extends AbstractRepositorio{
+public class PessoaFisicaRepositorio extends AbstractRepositorio {
     public PessoaFisicaRepositorio(BancoDeDados bancoDeDados) {
         super(bancoDeDados);
     }
 
     @Override
     protected Class classeModelo() {
-        return null;
+        return PessoaFisica.class;
     }
 
     @Override
@@ -29,14 +29,14 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio{
         nome = nome.toLowerCase();
         List<PessoaFisica> clientesEncontrados = new ArrayList<>();
 
-        if(clientesEncontrados != null) {
+        if (clientesEncontrados != null) {
             for (PessoaFisica cliente : clientesEncontrados) {
                 if (cliente.getNome().toLowerCase().contains(nome)) {
                     clientesEncontrados.add(cliente);
                 }
             }
         }
-        if(clientesEncontrados.isEmpty()) {
+        if (clientesEncontrados.isEmpty()) {
             return null;
         }
         return clientesEncontrados;
@@ -51,5 +51,15 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio{
     @Override
     public <T extends Veiculo> void excluirVeiculo(T veiculo) {
 
+    }
+
+    @Override
+    public void gravar(Object objeto) {
+        PessoaFisica cliente = (PessoaFisica) objeto;
+        if (cliente.getId() == null) {
+            cliente.setId(bancoDeDados.proximoId());
+        }
+        super.gravar(objeto);
+        System.out.println(listar());
     }
 }
