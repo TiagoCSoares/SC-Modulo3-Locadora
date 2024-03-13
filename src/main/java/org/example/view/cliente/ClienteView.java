@@ -27,16 +27,15 @@ public class ClienteView extends AbstractMenuView {
                 new CadastrarClienteView().execute();
                 break;
             case 2:
-                //new ListarClientesView().execute();
-                System.out.println("LIstando clientes");
+                new ListarClientesView().execute();
+                System.out.println("Listando clientes");
                 break;
             case 3:
-                //new BuscarClienteView().execute();
+                new BuscarClienteView().execute();
                 System.out.println("Buscando cliente");
                 break;
             case 0:
                 break;
         }
-        execute();
     }
 }

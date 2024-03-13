@@ -1,6 +1,7 @@
 package org.example.view.cliente;
 
 import org.example.resources.cadastrar.CadastrarPessoaFisica;
+import org.example.resources.cadastrar.CadastrarPessoaJuridica;
 import org.example.resources.verificadores.VerificarInt;
 
 import java.util.Scanner;
@@ -9,12 +10,9 @@ public class CadastrarClienteView {
 
 
     public void execute() {
-            Scanner scanner = new Scanner(System.in);
-
-
             int option = -1;
             while(option < 0  || option > 2) {
-                new VerificarInt().verificarInt("""
+                option = new VerificarInt().verificarInt("""
                         O cliente é:
                         1 - Pessoa Jurídica
                         2 - Pessoa Física
@@ -23,9 +21,11 @@ public class CadastrarClienteView {
             }
 
             if(option == 1) {
-                //CadastrarPessoaJuridica cadastrarPessoaJuridica = new CadastrarPessoaJuridica();
+                CadastrarPessoaJuridica cadastro = new CadastrarPessoaJuridica();
+                cadastro.cadastrarCliente();
             } else if(option == 2) {
-                CadastrarPessoaFisica cadastrarPessoaFisica = new CadastrarPessoaFisica();
+                CadastrarPessoaFisica cadastro = new CadastrarPessoaFisica();
+                cadastro.cadastrarCliente();
             }
         }
     }
