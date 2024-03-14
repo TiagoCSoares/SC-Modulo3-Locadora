@@ -9,6 +9,7 @@ import org.example.repositories.PessoaJuridicaRepositorio;
 import org.example.resources.aluguel.Aluguel;
 import org.example.resources.cadastrar.CadastrarPessoaFisica;
 import org.example.resources.iniciarArquivos.IniciarArquivos;
+import org.example.resources.lerArquivos.LerArquivoPessoFisica;
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.view.Menu;
@@ -31,9 +32,12 @@ public class Main {
 
         //VeiculoRepositorio veiculoRepositorio = new VeiculoRepositorio(bancoDeDadosVeiculo);
 
-        new IniciarArquivos().iniciarArquivos();
+        //new IniciarArquivos().iniciarArquivos();
+
+        new LerArquivoPessoFisica().lerArquivo(pessoaFisicaService);
 
         Menu menuPrincipal = new Menu(pessoaFisicaService, pessoaJuridicaService);
         menuPrincipal.execute();
+
     }
 }

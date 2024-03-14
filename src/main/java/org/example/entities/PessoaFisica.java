@@ -58,10 +58,17 @@ public class PessoaFisica extends Pessoa {
 
     @Override
     public String cabecalho() {
-        return String.format("%-14s | %-20s | %-20s | %-5s | %-7s - %-15s - %-7s",
+        StringBuilder cabecalho = new StringBuilder();
+
+        cabecalho.append(String.format("%-68s\t | %-20s",
+                "Cliente", "Veiculo alugado"));
+
+        cabecalho.append(String.format("\n%-14s | %-20s | %-20s | %-5s\t | %-7s - %-15s - %-7s",
                 "CPF", "Nome",
                 "Endereço", "Idade",
-                "Placa", "Modelo", "Tipo");
+                "Placa", "Modelo", "Tipo"));
+
+        return cabecalho.toString();
     }
 
     @Override

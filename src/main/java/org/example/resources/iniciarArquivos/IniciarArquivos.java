@@ -1,5 +1,7 @@
 package org.example.resources.iniciarArquivos;
 
+import org.example.services.ServiceInterface;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -7,13 +9,11 @@ public class IniciarArquivos {
 
 
     // TODO: Criar Abstract Service e fazer passagem de generics para iniciarArquivos
-    public /*<T extends AbstractService>*/ void iniciarArquivos(/*<T service*/) {
+    public <T extends ServiceInterface> void iniciarArquivos(T service) {
         // Caso a pasta arquivos não exista cria a nova Pasta
         novaPasta("src/main/java/org/example/arquivos");
 
-        // novoArquivo(service.caminhoDoArquivo);
-
-        novoArquivo("src/main/java/org/example/arquivos/pessoasFisicas.txt");
+        novoArquivo(service.caminhoDoArquivo());
     }
 
 
