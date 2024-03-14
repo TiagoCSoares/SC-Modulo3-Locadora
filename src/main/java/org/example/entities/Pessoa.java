@@ -49,4 +49,12 @@ public abstract class Pessoa implements Exibir {
     public void desassociarVeiculo(Veiculo carro) {
         veiculos.remove(carro);
     }
+
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
+    }
+
+    public void setVeiculos(List<Veiculo> veiculos) {
+        this.veiculos = veiculos;
+    }
 }

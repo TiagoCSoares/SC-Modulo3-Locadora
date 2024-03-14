@@ -63,30 +63,49 @@ public class PessoaFisica extends Pessoa {
         return periodo.getYears();
     }
 
-    public String exibir() {
-        return String.format(("%14L | %20s | % 20s | 10s"),
-                getCpf(), getNome(),
-                getEndereco(), getDataNascimento());
+
+    @Override
+    public String cabecalho() {
+        return String.format("%-14s | %-20s | %-20s | %-5s | %-7s - %-15s - %-7s",
+                "CPF", "Nome",
+                "Endereço", "Idade",
+                "Placa", "Modelo", "Tipo");
     }
 
-    public String escrever() {
-        // TODO: String Builder
-        /*
-        return String.format(("%14L | %20s | % 20s | 10s"),
+    @Override
+    public String exibir() {
+        StringBuilder cliente = new StringBuilder();
+        cliente.append(String.format(("%-14L | %-20s | %-20s | %-5s"),
                 getCpf(), getNome(),
-                getEndereco(), getDataNascimento());
-        */
-        return null;
+                getEndereco(), calcularIdade()));
+
+        for(Veiculo veiculo : getVeiculos()) {
+            cliente.append(String.format((" | %-7s - %-15s - %-7s"),
+                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo()));
+        }
+        return cliente.toString();
+    }
+
+    @Override
+    public String escrever() {
+        StringBuilder cliente = new StringBuilder();
+        cliente.append(String.format(("%-14L | %-20s | %-20s | %-5s"),
+                getCpf(), getNome(),
+                getEndereco(), calcularIdade()));
+
+        for(Veiculo veiculo : getVeiculos()) {
+            cliente.append(String.format((" | %-7s - %-15s - %-7s - " +
+                                    "%-15s - %-4d - %-10s - " +
+                                    "%-10s"),
+                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo(),
+                    veiculo.getMarca(), veiculo.getAno(), veiculo.getCor(),
+                    veiculo.getDataInicio()));
+        }
+        return cliente.toString();
     }
 
     @Override
     public String caminhoDoArquivo() {
-        return null;
-    }
-
-    public String cabecalho() {
-        return String.format("%-14s | %-20s | %-20s | %-5s",
-                "CPF", "Nome",
-                "Endereço", "Idade");
+        return "src/main/java/org/example/arquivos/pessoasFisicas.txt";
     }
 }

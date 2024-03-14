@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public abstract class Veiculo {
     private String placa;
+    private String modelo;
     private final String tipo;
     private final String marca;
     private final int ano;
@@ -14,8 +15,9 @@ public abstract class Veiculo {
     //private String dataFim;
 
 
-    public Veiculo(String placa, String marca, int ano, String cor, String tipo) {
+    public Veiculo(String placa, String modelo ,String marca, int ano, String cor, String tipo) {
         this.placa = placa;
+        this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
         this.cor = cor;
@@ -29,6 +31,18 @@ public abstract class Veiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setDataInicio(LocalDateTime dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     public String getTipo() {

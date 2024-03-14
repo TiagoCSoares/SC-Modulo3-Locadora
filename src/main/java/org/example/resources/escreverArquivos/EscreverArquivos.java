@@ -17,15 +17,4 @@ public class EscreverArquivos {
             e.printStackTrace();
         }
     }
-
-    public <T extends Exibir> void escreverDados(String nomeArquivo, List<T> lista) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
-            for (T objeto : lista) {
-                writer.write(objeto.exibir());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
