@@ -1,9 +1,11 @@
 package org.example.entities;
 
+import org.example.resources.escreverArquivos.Exibir;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Exibir {
     private Long id;
     private String nome;
     private String endereco;

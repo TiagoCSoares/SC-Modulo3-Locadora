@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
@@ -14,7 +15,7 @@ public class PessoaFisica extends Pessoa {
     public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento, List<Veiculo> veiculos) {
         super(nome, endereco, veiculos);
         this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
+        this.dataNascimento = "dataNascimento";
     }
 
 
@@ -25,6 +26,14 @@ public class PessoaFisica extends Pessoa {
     public String getDataNascimento() {
         return dataNascimento;
     }
+
+
+    public String teste() {
+        String teste = "teste";
+
+        return null;
+    }
+
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
@@ -54,10 +63,30 @@ public class PessoaFisica extends Pessoa {
         return periodo.getYears();
     }
 
-    public String exibirPessoaFisica() {
-        return String.format("%14L | %20s | % 20s | 10s",
+    public String exibir() {
+        return String.format(("%14L | %20s | % 20s | 10s"),
                 getCpf(), getNome(),
                 getEndereco(), getDataNascimento());
+    }
 
+    public String escrever() {
+        // TODO: String Builder
+        /*
+        return String.format(("%14L | %20s | % 20s | 10s"),
+                getCpf(), getNome(),
+                getEndereco(), getDataNascimento());
+        */
+        return null;
+    }
+
+    @Override
+    public String caminhoDoArquivo() {
+        return null;
+    }
+
+    public String cabecalho() {
+        return String.format("%-14s | %-20s | %-20s | %-5s",
+                "CPF", "Nome",
+                "Endereço", "Idade");
     }
 }

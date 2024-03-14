@@ -3,20 +3,24 @@ package org.example.view.cliente;
 import org.example.entities.PessoaFisica;
 import org.example.resources.verificadores.VerificarInt;
 import org.example.services.PessoaFisicaService;
+import org.example.services.PessoaJuridicaService;
 
 import java.util.List;
 
 public class ListarClientesView {
 
     private PessoaFisicaService pessoaFisicaService;
+    private PessoaJuridicaService pessoaJuridicaService;
 
-    public ListarClientesView(PessoaFisicaService pessoaFisicaService) {
+
+    public ListarClientesView(PessoaFisicaService pessoaFisicaService, PessoaJuridicaService pessoaJuridicaService) {
         this.pessoaFisicaService = pessoaFisicaService;
+        this.pessoaJuridicaService = pessoaJuridicaService;
     }
 
     public void execute() {
 
-       /* int option = -1;
+       int option = -1;
         while(option < 0  || option > 3) {
             option = new VerificarInt().verificarInt("""
                         Listar:
@@ -26,7 +30,7 @@ public class ListarClientesView {
                         0 - Cancelar operação
                         """);
         }
-*/
+
         List<PessoaFisica> clientesFisicos = pessoaFisicaService.listar();
 
         System.out.println("Clientes cadastrados:");

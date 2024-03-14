@@ -4,15 +4,19 @@ import org.example.resources.cadastrar.CadastrarPessoaFisica;
 import org.example.resources.cadastrar.CadastrarPessoaJuridica;
 import org.example.resources.verificadores.VerificarInt;
 import org.example.services.PessoaFisicaService;
+import org.example.services.PessoaJuridicaService;
 
 import java.util.Scanner;
 
 public class CadastrarClienteView {
 
     private PessoaFisicaService pessoaFisicaService;
+    private PessoaJuridicaService pessoaJuridicaService;
 
-    public CadastrarClienteView(PessoaFisicaService pessoaFisicaService) {
+
+    public CadastrarClienteView(PessoaFisicaService pessoaFisicaService, PessoaJuridicaService pessoaJuridicaService) {
         this.pessoaFisicaService = pessoaFisicaService;
+        this.pessoaJuridicaService = pessoaJuridicaService;
     }
 
     public void execute() {
@@ -27,7 +31,7 @@ public class CadastrarClienteView {
             }
 
             if(option == 1) {
-                CadastrarPessoaJuridica cadastro = new CadastrarPessoaJuridica();
+                CadastrarPessoaJuridica cadastro = new CadastrarPessoaJuridica(pessoaJuridicaService);
                 cadastro.cadastrarCliente();
             } else if(option == 2) {
                 CadastrarPessoaFisica cadastro = new CadastrarPessoaFisica(pessoaFisicaService);

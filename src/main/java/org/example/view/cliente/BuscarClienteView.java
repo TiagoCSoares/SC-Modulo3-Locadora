@@ -1,10 +1,23 @@
 package org.example.view.cliente;
 
 
+import org.example.entities.PessoaFisica;
+import org.example.entities.PessoaJuridica;
 import org.example.resources.verificadores.VerificarInt;
 import org.example.resources.verificadores.VerificarLong;
+import org.example.services.PessoaFisicaService;
+import org.example.services.PessoaJuridicaService;
 
 public class BuscarClienteView {
+
+    private PessoaFisicaService pessoaFisicaService;
+    private PessoaJuridicaService pessoaJuridicaService;
+
+    public BuscarClienteView(PessoaFisicaService pessoaFisicaService, PessoaJuridicaService pessoaJuridicaService) {
+        this.pessoaFisicaService = pessoaFisicaService;
+        this.pessoaJuridicaService = pessoaJuridicaService;
+    }
+
 
     public void execute() {
 

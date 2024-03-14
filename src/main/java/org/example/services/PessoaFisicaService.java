@@ -46,8 +46,8 @@ public class PessoaFisicaService {
 
     public void escreverArquivo() {
         List<PessoaFisica> clientes = listar();
-        //EscreverArquivos escrever = new EscreverArquivos();
-        //escrever.escreverArtistas(clientes);
+        new EscreverArquivos().escreverDados(" "
+                , clientes);
     }
 
 

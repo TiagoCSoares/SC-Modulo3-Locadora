@@ -3,6 +3,7 @@ package org.example.resources.cadastrar;
 import org.example.entities.Pessoa;
 import org.example.entities.PessoaFisica;
 import org.example.entities.PessoaJuridica;
+import org.example.services.PessoaJuridicaService;
 
 import java.util.Scanner;
 
