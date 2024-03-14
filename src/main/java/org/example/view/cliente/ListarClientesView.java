@@ -33,15 +33,13 @@ public class ListarClientesView {
 
         List<PessoaFisica> clientesFisicos = pessoaFisicaService.listar();
 
-        System.out.println("Clientes cadastrados:");
-        for (PessoaFisica cliente : clientesFisicos) {
-            System.out.println(cliente.getNome());
-        }
+
         if (!clientesFisicos.isEmpty()) {
-            System.out.println("Clientes cadastrados:");
+            System.out.println(clientesFisicos.get(0).cabecalho());
             for (PessoaFisica cliente : clientesFisicos) {
-                System.out.println(cliente.getNome());
+                System.out.println(cliente.exibir());
             }
+            System.out.println();
         } else {
             System.out.println("Nenhum artista cadastrado");
         }

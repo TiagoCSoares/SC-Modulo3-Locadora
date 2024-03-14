@@ -60,6 +60,5 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio {
             cliente.setId(bancoDeDados.proximoId());
         }
         super.gravar(objeto);
-        System.out.println(listar());
     }
 }

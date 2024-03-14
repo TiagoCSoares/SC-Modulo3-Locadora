@@ -13,12 +13,6 @@ public class BancoDeDados {
         //Set objetos = colecaoDeObjetos(objeto.getClass());
         Set<Object> objetos = colecaoDeObjetos(objeto.getClass());
         objetos.add(objeto);
-        System.out.println("Inseriu objeto");
-        objeto.getClass().getName();
-        System.out.println(objeto.getClass());
-        System.out.println("-----");
-        PessoaFisica pessoa = (PessoaFisica) objeto;
-        System.out.println(pessoa.getNome());
     }
 
     public void excluirObjeto(Object objeto) {

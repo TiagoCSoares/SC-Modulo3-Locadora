@@ -7,6 +7,4 @@ public interface Exibir {
     String exibir();
 
     String escrever();
-
-    String caminhoDoArquivo();
 }

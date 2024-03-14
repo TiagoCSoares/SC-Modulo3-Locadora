@@ -23,8 +23,6 @@ public class PessoaFisicaService {
             throw new IllegalArgumentException("Nome do artista não pode ser nulo ou vazio");
         }
         pessoaFisicaRepositorio.gravar(pessoa);
-        System.out.println("gravou gilh o da puta");
-        System.out.println(pessoaFisicaRepositorio.listar());
     }
 
 
@@ -46,8 +44,8 @@ public class PessoaFisicaService {
 
     public void escreverArquivo() {
         List<PessoaFisica> clientes = listar();
-        new EscreverArquivos().escreverDados(" "
-                , clientes);
+        new EscreverArquivos().escreverDados(
+                "src/main/java/org/example/arquivos/pessoasFisicas.txt", clientes);
     }
 
 

@@ -61,9 +61,4 @@ public class PessoaJuridica extends Pessoa{
 
         return cliente.toString();
     }
-
-    @Override
-    public String caminhoDoArquivo() {
-        return "src/main/java/org/example/arquivos/pessoasJuridicas.txt";
-    }
 }

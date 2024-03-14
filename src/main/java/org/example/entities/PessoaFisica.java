@@ -28,13 +28,6 @@ public class PessoaFisica extends Pessoa {
     }
 
 
-    public String teste() {
-        String teste = "teste";
-
-        return null;
-    }
-
-
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
@@ -102,10 +95,5 @@ public class PessoaFisica extends Pessoa {
                     veiculo.getDataInicio()));
         }
         return cliente.toString();
-    }
-
-    @Override
-    public String caminhoDoArquivo() {
-        return "src/main/java/org/example/arquivos/pessoasFisicas.txt";
     }
 }

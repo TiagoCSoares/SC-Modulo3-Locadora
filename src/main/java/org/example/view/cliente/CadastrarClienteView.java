@@ -36,7 +36,6 @@ public class CadastrarClienteView {
             } else if(option == 2) {
                 CadastrarPessoaFisica cadastro = new CadastrarPessoaFisica(pessoaFisicaService);
                 cadastro.cadastrarCliente();
-                System.out.println("cadastrou vadia");
             }
         }
     }

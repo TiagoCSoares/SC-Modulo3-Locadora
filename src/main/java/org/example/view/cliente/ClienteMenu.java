@@ -38,7 +38,9 @@ public class ClienteMenu extends AbstractMenuView {
                 break;
             case 3:
                 new BuscarClienteView(pessoaFisicaService, pessoaJuridicaService).execute();
-                System.out.println("Buscando cliente");
+                break;
+            case 4:
+                new AtualizarClienteView(pessoaFisicaService, pessoaJuridicaService).execute();
                 break;
             case 0:
                 return;
