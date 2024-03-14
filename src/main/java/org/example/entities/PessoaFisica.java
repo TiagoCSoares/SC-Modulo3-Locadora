@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
@@ -15,7 +14,7 @@ public class PessoaFisica extends Pessoa {
     public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento, List<Veiculo> veiculos) {
         super(nome, endereco, veiculos);
         this.cpf = cpf;
-        this.dataNascimento = "dataNascimento";
+        this.dataNascimento = dataNascimento;
     }
 
 
@@ -68,9 +67,9 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String exibir() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14L | %-20s | %-20s | %-5s"),
+        cliente.append(String.format(("%-14d | %-20s | %-20s | %-10s"),
                 getCpf(), getNome(),
-                getEndereco(), calcularIdade()));
+                getEndereco(), getDataNascimento()));
 
         for(Veiculo veiculo : getVeiculos()) {
             cliente.append(String.format((" | %-7s - %-15s - %-7s"),
@@ -82,7 +81,7 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String escrever() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14L | %-20s | %-20s | %-5s"),
+        cliente.append(String.format(("%-14d | %-20s | %-20s | %-5s"),
                 getCpf(), getNome(),
                 getEndereco(), calcularIdade()));
 

@@ -7,7 +7,7 @@ import org.example.resources.escreverArquivos.EscreverArquivos;
 
 import java.util.List;
 
-public class PessoaFisicaService {
+public class PessoaFisicaService implements ServiceInterface{
 
     private PessoaFisicaRepositorio pessoaFisicaRepositorio;
 
@@ -45,7 +45,7 @@ public class PessoaFisicaService {
     public void escreverArquivo() {
         List<PessoaFisica> clientes = listar();
         new EscreverArquivos().escreverDados(
-                "src/main/java/org/example/arquivos/pessoasFisicas.txt", clientes);
+                caminhoDoArquivo(), clientes);
     }
 
 
@@ -59,5 +59,10 @@ public class PessoaFisicaService {
             clientes = pessoaFisicaRepositorio.buscarPorNome(nome);
         }
         return clientes;
+    }
+
+    @Override
+    public String caminhoDoArquivo() {
+        return "src/main/java/org/example/arquivos/pessoasFisicas.txt";
     }
 }
