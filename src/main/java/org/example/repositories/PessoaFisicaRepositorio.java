@@ -19,7 +19,7 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio {
     }
 
     @Override
-    protected Boolean filtraPorId(Object objeto, Long id) {
+    protected <T> Boolean filtraPorId(Object objeto, T id) {
         PessoaFisica pessoaFisica = (PessoaFisica) objeto;
         return pessoaFisica.getCpf().equals(id);
     }
@@ -45,17 +45,6 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio {
     }
 
     @Override
-    public <T extends Veiculo> void associarVeiculo(Pessoa pessoa, T veiculo) {
-        PessoaFisica cliente = (PessoaFisica) pessoa;
-        cliente.associarVeiculo(veiculo);
-    }
-
-    @Override
-    public <T extends Veiculo> void excluirVeiculo(T veiculo) {
-
-    }
-
-    @Override
     public void gravar(Object objeto) {
         PessoaFisica cliente = (PessoaFisica) objeto;
         if (cliente.getId() == null) {
@@ -63,4 +52,5 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio {
         }
         super.gravar(objeto);
     }
+
 }

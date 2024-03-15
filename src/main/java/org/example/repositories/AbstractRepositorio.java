@@ -20,7 +20,7 @@ public abstract class AbstractRepositorio {
         this.bancoDeDados.inserirObjeto(objeto);
     }
 
-    public Object buscarPorId(Long id) {
+    public <T> Object buscarPorId(T id) {
         List objetos = listar();
         Object encontradoPorId = null;
         for (Object objeto : objetos) {
@@ -43,13 +43,17 @@ public abstract class AbstractRepositorio {
 
     protected abstract Class classeModelo();
 
-    protected abstract Boolean filtraPorId(Object objeto, Long id);
+    protected abstract <T> Boolean filtraPorId(Object objeto, T id);
 
     public abstract List buscarPorNome(String nome);
 
-    public abstract <T extends Veiculo> void associarVeiculo(Pessoa pessoa, T veiculo);
+    public <T extends Veiculo> void alugarVeiculo(Pessoa pessoa, T veiculo) {
+        pessoa.associarVeiculo(veiculo);
+        veiculo.setLocador(pessoa);
+    }
 
-    public abstract <T extends Veiculo> void excluirVeiculo(T veiculo);
-
-
+    public <T extends Veiculo> void entregarVeiculo(Pessoa pessoa, T veiculo) {
+        pessoa.desassociarVeiculo(veiculo);
+        veiculo.setLocador(null);
+    }
 }

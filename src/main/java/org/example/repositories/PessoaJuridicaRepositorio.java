@@ -20,10 +20,11 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
     }
 
     @Override
-    protected Boolean filtraPorId(Object objeto, Long id) {
+    protected <T> Boolean filtraPorId(Object objeto, T id) {
         PessoaJuridica pessoaJuridica = (PessoaJuridica) objeto;
         return pessoaJuridica.getCnpj().equals(id);
     }
+
 
     @Override
     public List<PessoaJuridica> buscarPorNome(String nome) {
@@ -43,16 +44,6 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
         return clientesEncontrados;
     }
 
-    @Override
-    public <T extends Veiculo> void associarVeiculo(Pessoa pessoa, T veiculo) {
-        PessoaJuridica cliente = (PessoaJuridica) pessoa;
-        cliente.associarVeiculo(veiculo);
-    }
-
-    @Override
-    public <T extends Veiculo> void excluirVeiculo(T veiculo) {
-
-    }
 
     @Override
     public void gravar(Object objeto) {
