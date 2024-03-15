@@ -7,13 +7,20 @@ import java.io.IOException;
 
 public class IniciarArquivos {
 
+    public void iniciarArquivos(String caminhoDoArquivo) {
+        File novoArquivo = new File(caminhoDoArquivo);
+        try {
+            if (!novoArquivo.exists()) {
+                novoArquivo.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // TODO: Criar Abstract Service e fazer passagem de generics para iniciarArquivos
-    public <T extends ServiceInterface> void iniciarArquivos(T service) {
+    public void iniciarPasta() {
         // Caso a pasta arquivos não exista cria a nova Pasta
         novaPasta("src/main/java/org/example/arquivos");
-
-        novoArquivo(service.caminhoDoArquivo());
     }
 
 
@@ -21,17 +28,6 @@ public class IniciarArquivos {
         File novaPasta = new File(pasta);
         if (!novaPasta.exists()) {
             novaPasta.mkdirs();
-        }
-    }
-
-    public static void novoArquivo(String arquivo) {
-        File novoArquivo = new File(arquivo);
-        try {
-            if (!novoArquivo.exists()) {
-                novoArquivo.createNewFile();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

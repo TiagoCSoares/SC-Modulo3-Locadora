@@ -12,7 +12,6 @@ public abstract class Veiculo {
     private String cor;
     private Pessoa locador;
     private LocalDateTime dataInicio;
-    //private String dataFim;
 
 
     public Veiculo(String placa, String modelo ,String marca, int ano, String cor, String tipo) {

@@ -8,6 +8,7 @@ public class ClienteMenu extends AbstractMenuView {
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
+    //private VeiculoService veiculoService;
 
 
     public ClienteMenu(PessoaFisicaService pessoaFisicaService, PessoaJuridicaService pessoaJuridicaService) {
@@ -16,6 +17,7 @@ public class ClienteMenu extends AbstractMenuView {
                 "2 - Listar Clientes",
                 "3 - Buscar Cliente por CPF/CNPJ",
                 "4 - Atualizar Cliente",
+                "5 - Excluir Cliente",
                 "0 - Voltar\n"
         });
         this.pessoaFisicaService = pessoaFisicaService;
@@ -42,6 +44,9 @@ public class ClienteMenu extends AbstractMenuView {
             case 4:
                 new AtualizarClienteView(pessoaFisicaService, pessoaJuridicaService).execute();
                 break;
+            case 5:
+                new ExcluirClienteView(pessoaFisicaService, pessoaJuridicaService/*,
+                        veiculoService*/);
             case 0:
                 return;
         }

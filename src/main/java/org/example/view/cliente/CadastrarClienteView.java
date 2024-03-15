@@ -8,7 +8,7 @@ import org.example.services.PessoaJuridicaService;
 
 import java.util.Scanner;
 
-public class CadastrarClienteView {
+public class CadastrarClienteView implements ClienteInterface{
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
@@ -19,16 +19,9 @@ public class CadastrarClienteView {
         this.pessoaJuridicaService = pessoaJuridicaService;
     }
 
+
     public void execute() {
-            int option = -1;
-            while(option < 0  || option > 2) {
-                option = new VerificarInt().verificarInt("""
-                        O cliente é:
-                        1 - Pessoa Jurídica
-                        2 - Pessoa Física
-                        0 - Cancelar operação
-                        """);
-            }
+            int option = tipoPessoa();
 
             if(option == 1) {
                 CadastrarPessoaJuridica cadastro = new CadastrarPessoaJuridica(pessoaJuridicaService);
@@ -36,6 +29,8 @@ public class CadastrarClienteView {
             } else if(option == 2) {
                 CadastrarPessoaFisica cadastro = new CadastrarPessoaFisica(pessoaFisicaService);
                 cadastro.cadastrarCliente();
+            } else {
+                System.out.println("Operação cancelada");
             }
         }
     }

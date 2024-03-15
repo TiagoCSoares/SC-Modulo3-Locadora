@@ -32,7 +32,9 @@ public class Main {
 
         //VeiculoRepositorio veiculoRepositorio = new VeiculoRepositorio(bancoDeDadosVeiculo);
 
-        //new IniciarArquivos().iniciarArquivos();
+        IniciarArquivos iniciaArquivos = new IniciarArquivos();
+        iniciaArquivos.iniciarPasta();
+        iniciaArquivos.iniciarArquivos(pessoaFisicaService.caminhoDoArquivo());
 
         new LerArquivoPessoFisica().lerArquivo(pessoaFisicaService);
 

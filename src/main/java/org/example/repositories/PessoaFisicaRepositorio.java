@@ -27,10 +27,12 @@ public class PessoaFisicaRepositorio extends AbstractRepositorio {
     @Override
     public List<PessoaFisica> buscarPorNome(String nome) {
         nome = nome.toLowerCase();
+
+        List<PessoaFisica> clientes = listar();
         List<PessoaFisica> clientesEncontrados = new ArrayList<>();
 
-        if (clientesEncontrados != null) {
-            for (PessoaFisica cliente : clientesEncontrados) {
+        if (clientes != null) {
+            for (PessoaFisica cliente : clientes) {
                 if (cliente.getNome().toLowerCase().contains(nome)) {
                     clientesEncontrados.add(cliente);
                 }
