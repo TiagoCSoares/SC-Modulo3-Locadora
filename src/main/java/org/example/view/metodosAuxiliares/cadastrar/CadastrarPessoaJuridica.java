@@ -1,7 +1,5 @@
-package org.example.resources.cadastrar;
+package org.example.view.metodosAuxiliares.cadastrar;
 
-import org.example.entities.Pessoa;
-import org.example.entities.PessoaFisica;
 import org.example.entities.PessoaJuridica;
 import org.example.services.PessoaJuridicaService;
 
@@ -27,7 +25,7 @@ public class CadastrarPessoaJuridica implements CadastrarCliente{
         String endereco = scanner.nextLine();
 
         System.out.println("Digite o CNPJ (Apenas Digitos):");
-        Long cnpj = scanner.nextLong();
+        Long cnpj = pessoaJuridicaService.definirIdentificador();
 
         PessoaJuridica pessoa = new PessoaJuridica(cnpj, nome, endereco, null);
         pessoaJuridicaService.criar(pessoa);

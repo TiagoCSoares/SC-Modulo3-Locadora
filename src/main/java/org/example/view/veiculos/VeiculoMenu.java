@@ -1,26 +1,28 @@
-package org.example.view.cliente;
+package org.example.view.veiculos;
+
 
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.services.VeiculoService;
 import org.example.view.AbstractMenuView;
+import org.example.view.cliente.*;
 
-public class ClienteMenu extends AbstractMenuView {
+public class VeiculoMenu extends AbstractMenuView {
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
     private VeiculoService veiculoService;
 
 
-    public ClienteMenu(PessoaFisicaService pessoaFisicaService,
+    public VeiculoMenu(PessoaFisicaService pessoaFisicaService,
                        PessoaJuridicaService pessoaJuridicaService,
                        VeiculoService veiculoService) {
         super(new String[] {
-                "1 - Cadastrar Cliente",
-                "2 - Listar Clientes",
-                "3 - Buscar Cliente por CPF/CNPJ",
-                "4 - Atualizar Cliente",
-                "5 - Excluir Cliente",
+                "1 - Cadastrar Veiculo",
+                "2 - Listar Veiculos",
+                "3 - Buscar Veiculo por Nome",
+                "4 - Atualizar Veiculo",
+                "5 - Excluir Veiculo",
                 "0 - Voltar\n"
         });
         this.pessoaFisicaService = pessoaFisicaService;
@@ -30,35 +32,30 @@ public class ClienteMenu extends AbstractMenuView {
 
     @Override
     protected Boolean validOption(Integer option) {
-        return option >= 0 && option <= 4;
+            return option >= 0 && option <= 4;
     }
 
     @Override
     protected void executeOption(Integer option) {
-        switch (option) {
+        /*switch (option) {
             case 1:
-                new CadastrarClienteView(pessoaFisicaService,
-                        pessoaJuridicaService).execute();
+                new CadastrarVeiculoView(veiculoService).execute();
                 break;
             case 2:
-                new ListarClientesView(pessoaFisicaService,
-                        pessoaJuridicaService).execute();
+                new ListarVeiculosView(veiculoService).execute();
                 break;
             case 3:
-                new BuscarClienteView(pessoaFisicaService,
-                        pessoaJuridicaService).execute();
+                new BuscarVeiculoView(veiculoService).execute();
                 break;
             case 4:
-                new AtualizarClienteView(pessoaFisicaService,
-                        pessoaJuridicaService).execute();
+                new AtualizarVeiculoView(veiculoService).execute();
                 break;
             case 5:
-                new ExcluirClienteView(pessoaFisicaService,
+                new ExcluirVeiculoView(pessoaFisicaService,
                         pessoaJuridicaService,
                         veiculoService).execute();
             case 0:
                 return;
-        }
-        execute();
+        }*/
     }
 }

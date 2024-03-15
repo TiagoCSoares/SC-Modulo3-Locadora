@@ -1,9 +1,11 @@
 package org.example.entities;
 
+import org.example.resources.escreverArquivos.Exibir;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public abstract class Veiculo {
+public abstract class Veiculo implements Exibir {
     private String placa;
     private String modelo;
     private final String tipo;
@@ -89,4 +91,58 @@ public abstract class Veiculo {
 
 
     public abstract Double calcularValor(LocalDateTime dataFim);
+
+
+
+
+
+    public String cabecalho() {
+        StringBuilder cabecalho = new StringBuilder();
+
+
+        cabecalho.append(String.format("\n%-14s | %-20s | %-20s | %-5s\t | %-7s - %-15s - %-7s",
+                "CPF", "Nome",
+                "Endereço", "Idade",
+                "Placa", "Modelo", "Tipo"));
+
+        cabecalho.append(String.format("%-68s | %-20s",
+                "Cliente", "Veiculo alugado"));
+
+
+        return cabecalho.toString();
+    }
+
+
+    public String exibir() {
+        StringBuilder cliente = new StringBuilder();
+        cliente.append("teste");
+        /*cliente.append(String.format(("%-14d | %-20s | %-20s | %-10s"),
+                getCpf(), getNome(),
+                getEndereco(), getDataNascimento()));
+*/
+        /*for(Veiculo veiculo : getVeiculos()) {
+            cliente.append(String.format((" | %-7s - %-15s - %-7s"),
+                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo()));
+        }*/
+        return cliente.toString();
+    }
+
+
+    public String escrever() {
+        StringBuilder cliente = new StringBuilder();
+        cliente.append("teste");
+        /*cliente.append(String.format(("%-14d | %-20s | %-20s | %-5s"),
+                getCpf(), getNome(),
+                getEndereco(), calcularIdade()));
+
+        for(Veiculo veiculo : getVeiculos()) {
+            cliente.append(String.format((" | %-7s - %-15s - %-7s - " +
+                            "%-15s - %-4d - %-10s - " +
+                            "%-10s"),
+                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo(),
+                    veiculo.getMarca(), veiculo.getAno(), veiculo.getCor(),
+                    veiculo.getDataInicio()));
+        }*/
+        return cliente.toString();
+    }
 }

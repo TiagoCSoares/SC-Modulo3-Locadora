@@ -1,4 +1,4 @@
-package org.example.resources.cadastrar;
+package org.example.view.metodosAuxiliares.cadastrar;
 
 import org.example.entities.PessoaFisica;
 import org.example.services.PessoaFisicaService;

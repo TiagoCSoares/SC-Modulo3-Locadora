@@ -1,12 +1,9 @@
 package org.example.view.cliente;
 
-import org.example.resources.cadastrar.CadastrarPessoaFisica;
-import org.example.resources.cadastrar.CadastrarPessoaJuridica;
-import org.example.resources.verificadores.VerificarInt;
+import org.example.view.metodosAuxiliares.cadastrar.CadastrarPessoaFisica;
+import org.example.view.metodosAuxiliares.cadastrar.CadastrarPessoaJuridica;
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
-
-import java.util.Scanner;
 
 public class CadastrarClienteView implements ClienteInterface{
 

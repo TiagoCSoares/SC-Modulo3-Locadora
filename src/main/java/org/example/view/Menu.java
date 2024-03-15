@@ -2,14 +2,18 @@ package org.example.view;
 
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
+import org.example.services.VeiculoService;
 import org.example.view.cliente.ClienteMenu;
 
 public class Menu extends AbstractMenuView{
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
+    private VeiculoService veiculoService;
 
-    public Menu(PessoaFisicaService pessoaFisicaService, PessoaJuridicaService pessoaJuridicaService) {
+    public Menu(PessoaFisicaService pessoaFisicaService,
+                PessoaJuridicaService pessoaJuridicaService,
+                VeiculoService veiculoService) {
         super(new String[]{
                 "1 - Usuários",
                 "2 - Veículos",
@@ -18,6 +22,7 @@ public class Menu extends AbstractMenuView{
         });
         this.pessoaFisicaService = pessoaFisicaService;
         this.pessoaJuridicaService = pessoaJuridicaService;
+        this.veiculoService = veiculoService;
     }
 
     @Override
@@ -29,7 +34,9 @@ public class Menu extends AbstractMenuView{
     protected void executeOption(Integer option) {
         switch (option) {
             case 1:
-                new ClienteMenu(pessoaFisicaService, pessoaJuridicaService).execute();
+                new ClienteMenu(pessoaFisicaService,
+                        pessoaJuridicaService,
+                        veiculoService).execute();
                 break;
             /*case 2:
                 new VeiculoView().execute();
