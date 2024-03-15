@@ -30,23 +30,21 @@ public class BuscarClienteView implements ClienteInterface{
         if(option == 1) {
             System.out.println("Digite o nome do cliente:");
             nome = scanner.nextLine();
-            PessoaFisica cliente = pessoaFisicaService.pesquisarPorNome(nome);
+            PessoaJuridica cliente = pessoaJuridicaService.pesquisarPorNome(nome);
             if(cliente != null)
                 System.out.println(cliente.exibir());
+            else
+                System.out.println("Cliente não encontrado");
         } else if(option == 2) {
             System.out.println("Digite o nome do cliente:");
             nome = scanner.nextLine();
             PessoaFisica cliente = pessoaFisicaService.pesquisarPorNome(nome);
             if(cliente != null)
                 System.out.println(cliente.exibir());
+            else
+                System.out.println("Cliente não encontrado");
         } else if (option == 0) {
             System.out.println("Operação cancelada");
-        } else {
-            System.out.println("Cliente não encontrado");
         }
     }
-
-
-
-
 }

@@ -1,6 +1,7 @@
 package org.example.view.cliente;
 
 import org.example.entities.PessoaFisica;
+import org.example.entities.PessoaJuridica;
 import org.example.resources.cadastrar.CadastrarPessoaFisica;
 import org.example.resources.cadastrar.CadastrarPessoaJuridica;
 import org.example.services.PessoaFisicaService;
@@ -29,10 +30,11 @@ public class ExcluirClienteView  implements ClienteInterface {
         if(option == 1) {
             System.out.println("Digite o nome do cliente que você deseja deletar:");
             nome = scanner.nextLine();
-            PessoaFisica cliente = pessoaFisicaService.pesquisarPorNome(nome);
-            if(cliente != null) {
-                pessoaFisicaService.excluir(cliente);
-            }
+            PessoaJuridica cliente = pessoaJuridicaService.pesquisarPorNome(nome);
+            if(cliente != null)
+                pessoaJuridicaService.excluir(cliente);
+            else
+                System.out.println("Cliente não encontrado");
 
         } else if(option == 2) {
             System.out.println("Digite o nome do cliente:");
@@ -40,11 +42,10 @@ public class ExcluirClienteView  implements ClienteInterface {
             PessoaFisica cliente = pessoaFisicaService.pesquisarPorNome(nome);
             if(cliente != null)
                 pessoaFisicaService.excluir(cliente);
+            else
+                System.out.println("Cliente não encontrado");
         } else if (option == 0) {
             System.out.println("Operação cancelada");
-        } else {
-            System.out.println("Cliente não encontrado");
         }
     }
-
 }

@@ -35,6 +35,7 @@ public class Main {
         IniciarArquivos iniciaArquivos = new IniciarArquivos();
         iniciaArquivos.iniciarPasta();
         iniciaArquivos.iniciarArquivos(pessoaFisicaService.caminhoDoArquivo());
+        iniciaArquivos.iniciarArquivos(pessoaJuridicaService.caminhoDoArquivo());
 
         new LerArquivoPessoFisica().lerArquivo(pessoaFisicaService);
 

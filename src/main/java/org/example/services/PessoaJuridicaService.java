@@ -73,7 +73,7 @@ public class PessoaJuridicaService implements ServiceInterface{
         if(listaClientes != null && !listaClientes.isEmpty()) {
             for(PessoaJuridica cliente : listaClientes) {
                 System.out.printf("%-14s | %-20s\n",
-                        "CPF" , "Nome");
+                        "CNPJ" , "Nome");
                 System.out.println(cliente.getCnpj() + " | "
                 + cliente.getNome());
                 System.out.println("Esse é o clinte desejado?");
@@ -118,19 +118,19 @@ public class PessoaJuridicaService implements ServiceInterface{
         Scanner scanner = new Scanner(System.in);
         long cpf = 0;
 
-        System.out.println("Digite o CPF (Apenas Digitos):");
+        System.out.println("Digite o CNPJ (Apenas Digitos):");
 
         while(scanner.hasNext()){
             if(scanner.hasNextLong()){
                 cpf = scanner.nextLong();
 
                 if(!verificarIdentificador(String.valueOf(cpf))){
-                    System.out.println("CPF inválido. Digite novamente:");
+                    System.out.println("CNPJ inválido. Digite novamente:");
                     continue;
                 }
                 break;
             }else{
-                System.out.println("Opção inválida, digite apenas os números do cpf.");
+                System.out.println("Opção inválida, digite apenas os números do cnpj.");
                 scanner.next();
             }
         }
