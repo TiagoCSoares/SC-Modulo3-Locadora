@@ -13,14 +13,11 @@ public class ExcluirClienteView  implements ClienteInterface {
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
-    private VeiculoService veiculoService;
 
     public ExcluirClienteView(PessoaFisicaService pessoaFisicaService,
-                              PessoaJuridicaService pessoaJuridicaService,
-                              VeiculoService veiculoService) {
+                              PessoaJuridicaService pessoaJuridicaService) {
         this.pessoaFisicaService = pessoaFisicaService;
         this.pessoaJuridicaService = pessoaJuridicaService;
-        this.veiculoService = veiculoService;
     }
 
 

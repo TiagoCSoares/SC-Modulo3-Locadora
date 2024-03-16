@@ -65,6 +65,4 @@ public class ListarClientesView implements ClienteInterface {
                 System.out.println("Cancelando!");
         }
     }
-
-
-    }
+}

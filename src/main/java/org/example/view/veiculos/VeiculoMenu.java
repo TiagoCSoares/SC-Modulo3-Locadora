@@ -37,7 +37,7 @@ public class VeiculoMenu extends AbstractMenuView {
 
     @Override
     protected void executeOption(Integer option) {
-        /*switch (option) {
+        switch (option) {
             case 1:
                 new CadastrarVeiculoView(veiculoService).execute();
                 break;
@@ -51,11 +51,9 @@ public class VeiculoMenu extends AbstractMenuView {
                 new AtualizarVeiculoView(veiculoService).execute();
                 break;
             case 5:
-                new ExcluirVeiculoView(pessoaFisicaService,
-                        pessoaJuridicaService,
-                        veiculoService).execute();
+                new ExcluirVeiculoView(veiculoService).execute();
             case 0:
                 return;
-        }*/
+        }
     }
 }

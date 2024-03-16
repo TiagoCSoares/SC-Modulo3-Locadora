@@ -58,7 +58,7 @@ public class AtualizarClienteView implements ClienteInterface {
 
         PessoaFisica pessoa = new PessoaFisica(cpf, nome, endereco, dataNascimento,veiculos);
 
-        return null;
+        return pessoa;
     }
 
 
@@ -91,7 +91,7 @@ public class AtualizarClienteView implements ClienteInterface {
 
         PessoaJuridica pessoa = new PessoaJuridica(cnpj, nome, endereco, veiculos);
 
-        return null;
+        return pessoa;
     }
 
 

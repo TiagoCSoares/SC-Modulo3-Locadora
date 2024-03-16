@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public abstract class Veiculo implements Exibir {
     private String placa;
-    private String modelo;
+    private final String modelo;
     private final String tipo;
     private final String marca;
     private final int ano;
@@ -25,6 +25,24 @@ public abstract class Veiculo implements Exibir {
         this.tipo = tipo;
     }
 
+    public Veiculo(String placa,
+                   String modelo ,
+                   String marca,
+                   int ano,
+                   String cor,
+                   String tipo,
+                   Pessoa locador,
+                   LocalDateTime dataInicio) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+        this.cor = cor;
+        this.tipo = tipo;
+        this.locador = locador;
+        this.dataInicio = dataInicio;
+    }
+
 
     public String getPlaca() {
         return placa;
@@ -38,9 +56,6 @@ public abstract class Veiculo implements Exibir {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 
     public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;

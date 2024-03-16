@@ -5,7 +5,18 @@ import java.time.LocalDateTime;
 public class VeiculoMedio extends Veiculo{
 
     public VeiculoMedio(String placa, String modelo, String marca, int ano, String cor) {
-        super(placa, modelo, marca, ano, cor, "Pequeno");
+        super(placa, modelo, marca, ano, cor, "Medio");
+    }
+
+    public VeiculoMedio(String placa,
+                   String modelo ,
+                   String marca,
+                   int ano,
+                   String cor,
+                   String tipo,
+                   Pessoa locador,
+                   LocalDateTime dataInicio) {
+        super(placa, modelo, marca, ano, cor, tipo, locador, dataInicio);
     }
 
     @Override

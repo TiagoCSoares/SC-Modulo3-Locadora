@@ -88,10 +88,10 @@ public class VeiculoService implements ServiceInterface{
     }
 
 
-    /*public void atualizar(PessoaJuridica cliente, PessoaJuridica novosDados) {
-        cliente.setEndereco(novosDados.getEndereco());
-        cliente.setNome(novosDados.getNome());
-    }*/
+    public void atualizar(Veiculo veiculo, Veiculo novosDados) {
+        veiculo.setCor(novosDados.getCor());
+        veiculo.setPlaca(novosDados.getPlaca());
+    }
 
     @Override
     public <T> T pesquisarPorNome(String nome) {
