@@ -4,6 +4,7 @@ import org.example.resources.escreverArquivos.Exibir;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Veiculo implements Exibir {
     private String placa;
@@ -13,7 +14,7 @@ public abstract class Veiculo implements Exibir {
     private final int ano;
     private String cor;
     private Pessoa locador;
-    private LocalDateTime dataInicio;
+    private String dataInicio;
 
 
     public Veiculo(String placa, String modelo ,String marca, int ano, String cor, String tipo) {
@@ -32,7 +33,7 @@ public abstract class Veiculo implements Exibir {
                    String cor,
                    String tipo,
                    Pessoa locador,
-                   LocalDateTime dataInicio) {
+                   String dataInicio) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -57,7 +58,7 @@ public abstract class Veiculo implements Exibir {
     }
 
 
-    public void setDataInicio(LocalDateTime dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
@@ -89,14 +90,24 @@ public abstract class Veiculo implements Exibir {
         this.locador = locador;
     }
 
-    public LocalDateTime getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
 
-    public void alugarVeiculo(Pessoa locador, LocalDateTime dataInicio) {
+    public void alugarVeiculo(Pessoa locador, String dataInicio) {
         this.locador = locador;
         this.dataInicio = dataInicio;
+    }
+
+    public void alugarVeiculo(Pessoa locador) {
+        this.locador = locador;
+
+        LocalDateTime hora = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String horaFormatada = hora.format(formatter);
+
+        this.dataInicio = horaFormatada;
     }
 
     public void devolverVeiculo() {
@@ -108,56 +119,59 @@ public abstract class Veiculo implements Exibir {
     public abstract Double calcularValor(LocalDateTime dataFim);
 
 
-
-
-
     public String cabecalho() {
         StringBuilder cabecalho = new StringBuilder();
 
+        cabecalho.append(String.format("%-70s\t | %-7s",
+                "Veiculo", "Locador"));
 
-        cabecalho.append(String.format("\n%-14s | %-20s | %-20s | %-5s\t | %-7s - %-15s - %-7s",
-                "CPF", "Nome",
-                "Endereço", "Idade",
-                "Placa", "Modelo", "Tipo"));
-
-        cabecalho.append(String.format("%-68s | %-20s",
-                "Cliente", "Veiculo alugado"));
-
+        cabecalho.append(String.format("\n%-7s | %-7s | %-15s | %-12s | %-4s" +
+                        " | %-10s\t | %-18s - %-25s",
+                "Placa", "Tipo", "Modelo",
+                "Marca", "Ano", "Cor",
+                "Documento Locador", "Nome Locador"));
 
         return cabecalho.toString();
     }
 
 
     public String exibir() {
-        StringBuilder cliente = new StringBuilder();
-        cliente.append("teste");
-        /*cliente.append(String.format(("%-14d | %-20s | %-20s | %-10s"),
-                getCpf(), getNome(),
-                getEndereco(), getDataNascimento()));
-*/
-        /*for(Veiculo veiculo : getVeiculos()) {
-            cliente.append(String.format((" | %-7s - %-15s - %-7s"),
-                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo()));
-        }*/
-        return cliente.toString();
+        StringBuilder veiculo = new StringBuilder();
+
+        veiculo.append(String.format("\n%-7s | %-7s | %-15s | %-12s | %-4d | %-20s" +
+                        " | %-10s\t",
+                getPlaca(), getTipo(), getModelo(),
+                getMarca(), getAno(), getCor(),
+                getDataInicio()));
+        if(getLocador() != null) {
+            if (getLocador() instanceof PessoaFisica) {
+                veiculo.append(String.format(" | %-18s - %-25s",
+                        ((PessoaFisica) getLocador()).getStringCpf(), (getLocador()).getNome()));
+            } else {
+                veiculo.append(String.format(" | %-18s - %-25s",
+                        ((PessoaJuridica) getLocador()).getStringCnpj(), (getLocador()).getNome()));
+            }
+        }
+        return veiculo.toString();
     }
 
 
     public String escrever() {
-        StringBuilder cliente = new StringBuilder();
-        cliente.append("teste");
-        /*cliente.append(String.format(("%-14d | %-20s | %-20s | %-5s"),
-                getCpf(), getNome(),
-                getEndereco(), calcularIdade()));
+        StringBuilder veiculo = new StringBuilder();
 
-        for(Veiculo veiculo : getVeiculos()) {
-            cliente.append(String.format((" | %-7s - %-15s - %-7s - " +
-                            "%-15s - %-4d - %-10s - " +
-                            "%-10s"),
-                    veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo(),
-                    veiculo.getMarca(), veiculo.getAno(), veiculo.getCor(),
-                    veiculo.getDataInicio()));
-        }*/
-        return cliente.toString();
+        veiculo.append(String.format("\n%-7s | %-7s | %-15s | %-12s | %-4d" +
+                        " | %-10s\t",
+                getPlaca(), getTipo(), getModelo(),
+                getMarca(), getAno(), getCor()));
+        if(getLocador() != null) {
+            if (getLocador() instanceof PessoaFisica) {
+                veiculo.append(String.format(" | %-18s - %-25s",
+                        ((PessoaFisica) getLocador()).getCpf(), (getLocador()).getNome()));
+            } else {
+                veiculo.append(String.format(" | %-18s - %-25s",
+                        ((PessoaJuridica) getLocador()).getCnpj(), (getLocador()).getNome()));
+            }
+        }
+        return veiculo.toString();
     }
 }

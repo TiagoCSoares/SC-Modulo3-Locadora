@@ -90,7 +90,6 @@ public class PessoaFisicaService implements ServiceInterface{
 
 
     public void atualizar(PessoaFisica cliente, PessoaFisica novosDados) {
-        cliente.setDataNascimento(novosDados.getDataNascimento());
         cliente.setEndereco(novosDados.getEndereco());
         cliente.setNome(novosDados.getNome());
     }

@@ -1,12 +1,10 @@
 package org.example.view.metodosAuxiliares.cadastrar;
 
-import org.example.entities.Veiculo;
 import org.example.entities.VeiculoMedio;
 import org.example.entities.VeiculoPequeno;
 import org.example.entities.VeiculoSUV;
 import org.example.services.VeiculoService;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CadastrarVeiculo {

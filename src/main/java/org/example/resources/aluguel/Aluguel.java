@@ -6,11 +6,12 @@ import org.example.entities.Veiculo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Aluguel {
 
 
-    public void alugarVeiculo(Veiculo veiculo, Pessoa locador, LocalDateTime dataInicio) {
+    public void alugarVeiculo(Veiculo veiculo, Pessoa locador, String dataInicio) {
 
         veiculo.alugarVeiculo(locador, dataInicio);
         locador.associarVeiculo(veiculo);
@@ -18,7 +19,9 @@ public class Aluguel {
 
     public void alugarVeiculo(Veiculo veiculo, Pessoa locador) {
 
-        LocalDateTime dataInicio = LocalDateTime.now();
+        LocalDateTime data = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String dataInicio = data.format(formatter);
 
         veiculo.alugarVeiculo(locador,dataInicio);
         locador.associarVeiculo(veiculo);

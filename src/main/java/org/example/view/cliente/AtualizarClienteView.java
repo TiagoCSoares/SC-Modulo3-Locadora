@@ -44,14 +44,6 @@ public class AtualizarClienteView implements ClienteInterface {
         }
 
         String dataNascimento = cliente.getDataNascimento();
-        System.out.println("Deseja atualizar a data de nascimento? (S/N):");
-        resposta = scanner.nextLine().charAt(0);
-        resposta = Character.toUpperCase(resposta);
-        if (resposta == 'S') {
-            System.out.println("Digite a nova data:");
-            dataNascimento = scanner.nextLine();
-            dataNascimento = pessoaFisicaService.verificarDataNascimento(dataNascimento);
-        }
 
         long cpf = cliente.getCpf();
         List<Veiculo> veiculos = cliente.getVeiculos();

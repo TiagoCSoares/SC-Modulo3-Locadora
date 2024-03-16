@@ -48,9 +48,9 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
     @Override
     public void gravar(Object objeto) {
         PessoaJuridica cliente = (PessoaJuridica) objeto;
-        if (cliente.getId() == null) {
+        /*if (cliente.getId() == null) {
             cliente.setId(bancoDeDados.proximoId());
-        }
+        }*/
         super.gravar(objeto);
         System.out.println(listar());
     }

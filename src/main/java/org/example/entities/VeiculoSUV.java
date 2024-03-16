@@ -14,7 +14,7 @@ public class VeiculoSUV extends Veiculo{
                         String cor,
                         String tipo,
                         Pessoa locador,
-                        LocalDateTime dataInicio) {
+                        String  dataInicio) {
         super(placa, modelo, marca, ano, cor, tipo, locador, dataInicio);
     }
 

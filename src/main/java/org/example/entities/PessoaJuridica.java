@@ -14,6 +14,13 @@ public class PessoaJuridica extends Pessoa{
         return cnpj;
     }
 
+    public String getStringCnpj() {
+        String cnpjString = String.valueOf(cnpj);
+        return cnpjString.substring(0, 2) + "." + cnpjString.substring(2, 5) + "." +
+                cnpjString.substring(5, 8) + "/" + cnpjString.substring(8, 12) + "-" +
+                cnpjString.substring(12);
+    }
+
     public String exibirPessoaJuridica() {
         return String.format("%14L | %20s | % 20s",
                 getCnpj(), getNome(),

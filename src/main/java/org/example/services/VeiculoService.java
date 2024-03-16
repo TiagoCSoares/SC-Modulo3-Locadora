@@ -115,25 +115,15 @@ public class VeiculoService implements ServiceInterface{
     @Override
     public <T> T definirIdentificador() {
         Scanner scanner = new Scanner(System.in);
-        long cpf = 0;
+        System.out.println("Digite a placa do Veículo:");
+        String placa = scanner.nextLine();
 
-        System.out.println("Digite o CNPJ (Apenas Digitos):");
-
-        while(scanner.hasNext()){
-            if(scanner.hasNextLong()){
-                cpf = scanner.nextLong();
-
-                if(!verificarIdentificador(String.valueOf(cpf))){
-                    System.out.println("CNPJ inválido. Digite novamente:");
-                    continue;
-                }
-                break;
-            }else{
-                System.out.println("Opção inválida, digite apenas os números do cnpj.");
-                scanner.next();
-            }
+        while (!verificarIdentificador(String.valueOf(placa))){
+            System.out.println("Placa inválida. Digite novamente:");
+            placa = scanner.nextLine();
         }
-        return (T) Long.valueOf(cpf);
+
+        return (T) (placa);
     }
 
 

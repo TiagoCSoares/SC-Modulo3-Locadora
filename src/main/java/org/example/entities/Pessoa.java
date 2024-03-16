@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pessoa implements Exibir {
-    private Long id;
     private String nome;
     private String endereco;
 
@@ -34,14 +33,6 @@ public abstract class Pessoa implements Exibir {
         this.endereco = endereco;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void associarVeiculo(Veiculo carro) {
         veiculos.add(carro);
     }
@@ -56,5 +47,9 @@ public abstract class Pessoa implements Exibir {
 
     public void setVeiculos(List<Veiculo> veiculos) {
         this.veiculos = veiculos;
+    }
+
+    public String converteCpf() {
+        return "afs";
     }
 }

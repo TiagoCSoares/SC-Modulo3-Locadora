@@ -9,14 +9,10 @@ import org.example.view.cliente.*;
 
 public class VeiculoMenu extends AbstractMenuView {
 
-    private PessoaFisicaService pessoaFisicaService;
-    private PessoaJuridicaService pessoaJuridicaService;
     private VeiculoService veiculoService;
 
 
-    public VeiculoMenu(PessoaFisicaService pessoaFisicaService,
-                       PessoaJuridicaService pessoaJuridicaService,
-                       VeiculoService veiculoService) {
+    public VeiculoMenu(VeiculoService veiculoService) {
         super(new String[] {
                 "1 - Cadastrar Veiculo",
                 "2 - Listar Veiculos",
@@ -25,8 +21,6 @@ public class VeiculoMenu extends AbstractMenuView {
                 "5 - Excluir Veiculo",
                 "0 - Voltar\n"
         });
-        this.pessoaFisicaService = pessoaFisicaService;
-        this.pessoaJuridicaService = pessoaJuridicaService;
         this.veiculoService = veiculoService;
     }
 

@@ -5,10 +5,16 @@ import org.example.repositories.PessoaFisicaRepositorio;
 import org.example.repositories.PessoaJuridicaRepositorio;
 import org.example.repositories.VeiculoRepositorio;
 import org.example.resources.iniciarArquivos.IniciarArquivos;
+import org.example.resources.lerArquivos.LerArquivoPessoFisica;
+import org.example.resources.lerArquivos.LerArquivoPessoJuridica;
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.services.VeiculoService;
 import org.example.view.Menu;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,9 +33,15 @@ public class Main {
         VeiculoService veiculoService = new VeiculoService(veiculoRepositorio);
 
         IniciarArquivos iniciaArquivos = new IniciarArquivos();
+
         iniciaArquivos.iniciarPasta();
         iniciaArquivos.iniciarArquivos(pessoaFisicaService.caminhoDoArquivo());
         iniciaArquivos.iniciarArquivos(pessoaJuridicaService.caminhoDoArquivo());
+        iniciaArquivos.iniciarArquivos(veiculoService.caminhoDoArquivo());
+
+        new LerArquivoPessoFisica().lerArquivo(pessoaFisicaService);
+        new LerArquivoPessoJuridica().lerArquivo(pessoaJuridicaService);
+
 
         Menu menuPrincipal = new Menu(pessoaFisicaService, pessoaJuridicaService, veiculoService);
         menuPrincipal.execute();

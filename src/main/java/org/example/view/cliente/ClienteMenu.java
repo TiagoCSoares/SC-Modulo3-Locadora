@@ -30,7 +30,7 @@ public class ClienteMenu extends AbstractMenuView {
 
     @Override
     protected Boolean validOption(Integer option) {
-        return option >= 0 && option <= 4;
+        return option >= 0 && option <= 5;
     }
 
     @Override
@@ -54,8 +54,7 @@ public class ClienteMenu extends AbstractMenuView {
                 break;
             case 5:
                 new ExcluirClienteView(pessoaFisicaService,
-                        pessoaJuridicaService,
-                        veiculoService).execute();
+                        pessoaJuridicaService).execute();
             case 0:
                 return;
         }

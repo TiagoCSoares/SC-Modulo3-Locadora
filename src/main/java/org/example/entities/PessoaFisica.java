@@ -9,7 +9,7 @@ import java.util.Objects;
 public class PessoaFisica extends Pessoa {
 
     private final Long cpf;
-    private String dataNascimento;
+    private final String dataNascimento; // dd/mm/yyyy
 
     public PessoaFisica(Long cpf, String nome, String endereco, String dataNascimento, List<Veiculo> veiculos) {
         super(nome, endereco, veiculos);
@@ -27,8 +27,10 @@ public class PessoaFisica extends Pessoa {
     }
 
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public String getStringCpf() {
+        String cpfString = String.valueOf(cpf);
+        return cpfString.substring(0, 3) + "." + cpfString.substring(3, 6) + "." +
+                cpfString.substring(6, 9) + "-" + cpfString.substring(9);
     }
 
     @Override
@@ -74,9 +76,9 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String exibir() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14d | %-20s | %-20s | %-10s"),
-                getCpf(), getNome(),
-                getEndereco(), getDataNascimento()));
+        cliente.append(String.format(("%-14d | %-20s | %-20s | %-5d"),
+                getStringCpf(), getNome(),
+                getEndereco(), calcularIdade()));
 
         for(Veiculo veiculo : getVeiculos()) {
             cliente.append(String.format((" | %-7s - %-15s - %-7s"),
@@ -88,14 +90,14 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String escrever() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14d | %-20s | %-20s | %-5s"),
+        cliente.append(String.format(("%-14d | %-20s | %-20s | %-10s"),
                 getCpf(), getNome(),
-                getEndereco(), calcularIdade()));
+                getEndereco(), getDataNascimento()));
 
         for(Veiculo veiculo : getVeiculos()) {
             cliente.append(String.format((" | %-7s - %-15s - %-7s - " +
                                     "%-15s - %-4d - %-10s - " +
-                                    "%-10s"),
+                                    "(%-16s)"),
                     veiculo.getPlaca(), veiculo.getModelo(), veiculo.getTipo(),
                     veiculo.getMarca(), veiculo.getAno(), veiculo.getCor(),
                     veiculo.getDataInicio()));

@@ -4,6 +4,7 @@ import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.services.VeiculoService;
 import org.example.view.cliente.ClienteMenu;
+import org.example.view.veiculos.VeiculoMenu;
 
 public class Menu extends AbstractMenuView{
 
@@ -38,14 +39,16 @@ public class Menu extends AbstractMenuView{
                         pessoaJuridicaService,
                         veiculoService).execute();
                 break;
-            /*case 2:
-                new VeiculoView().execute();
+            case 2:
+                new VeiculoMenu(veiculoService).execute();
                 break;
-            case 3:
+            /*case 3:
                 new LocacaoView().execute();
                 break;*/
             case 0:
                 pessoaFisicaService.escreverArquivo();
+                pessoaJuridicaService.escreverArquivo();
+                veiculoService.escreverArquivo();
                 System.exit(1);
             default:
                 System.out.println("Opção não disponível");
