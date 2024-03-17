@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PessoaJuridica extends Pessoa{
     private final Long cnpj;
@@ -30,17 +31,24 @@ public class PessoaJuridica extends Pessoa{
 
     @Override
     public String cabecalho() {
-        return String.format("%-14s | %-20s | %-20s | %-5s | %-7s - %-15s - %-7s",
-                "CNPJ", "Nome",
-                "Endereço", "Placa",
-                "Modelo", "Tipo");
+        StringBuilder cabecalho = new StringBuilder();
+
+        cabecalho.append(String.format("%-64s\t | %-20s",
+                "Cliente", "Veiculo alugado"));
+
+        cabecalho.append(String.format("\n%-18s | %-20s | %-20s\t | %-7s - %-15s - %-7s",
+                "CPF", "Nome",
+                "Endereço",
+                "Placa", "Modelo", "Tipo"));
+
+        return cabecalho.toString();
     }
 
     @Override
     public String exibir() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14L | %-20s | %-20s"),
-                getCnpj(), getNome(),
+        cliente.append(String.format(("%-18s | %-20s | %-20s"),
+                getStringCnpj(), getNome(),
                 getEndereco()));
         for(Veiculo veiculo : getVeiculos()) {
             cliente.append(String.format((" | %-7s - %-15s - %-7s"),
@@ -68,4 +76,17 @@ public class PessoaJuridica extends Pessoa{
 
         return cliente.toString();
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof PessoaJuridica that)) return false;
+        return Objects.equals(getCnpj(), that.getCnpj());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCnpj());
+    }
+
 }

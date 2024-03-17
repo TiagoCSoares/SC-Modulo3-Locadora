@@ -17,7 +17,7 @@ public class CadastrarVeiculoView {
     public void execute() {
 
         int option = -1;
-        while (option < 0 || option > 2) {
+        while (option < 1 || option > 3) {
             option = new VerificarInt().verificarInt("""
                     Qual o tipo do Veículo?:
                     1 - Pequeno
@@ -26,7 +26,20 @@ public class CadastrarVeiculoView {
                     """);
         }
 
-        new CadastrarVeiculo(veiculoService).cadastrarVeiculo(option);
+        String tipo = null;
+        switch (option) {
+            case 1:
+                tipo = "Pequeno";
+                break;
+            case 2:
+                tipo = "Médio";
+                break;
+            case 3:
+                tipo = "SUV";
+                break;
+        }
+
+        new CadastrarVeiculo(veiculoService).cadastrarVeiculo(tipo);
     }
 
 

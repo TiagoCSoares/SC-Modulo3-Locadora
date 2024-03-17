@@ -3,7 +3,6 @@ package org.example.services;
 import org.example.entities.Pessoa;
 import org.example.entities.PessoaFisica;
 import org.example.repositories.PessoaFisicaRepositorio;
-import org.example.resources.escreverArquivos.EscreverArquivos;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -50,13 +49,13 @@ public class PessoaFisicaService implements ServiceInterface{
     }
 
 
-    @Override
+    /*@Override
     public void escreverArquivo() {
         List<PessoaFisica> clientes = listar();
         new EscreverArquivos().escreverDados(
                 caminhoDoArquivo(), clientes);
     }
-
+*/
 
     @Override
     public List listar() {

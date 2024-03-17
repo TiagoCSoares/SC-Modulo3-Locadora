@@ -4,24 +4,18 @@ import org.example.banco.BancoDeDados;
 import org.example.repositories.PessoaFisicaRepositorio;
 import org.example.repositories.PessoaJuridicaRepositorio;
 import org.example.repositories.VeiculoRepositorio;
-import org.example.resources.iniciarArquivos.IniciarArquivos;
-import org.example.resources.lerArquivos.LerArquivoPessoFisica;
-import org.example.resources.lerArquivos.LerArquivoPessoJuridica;
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.services.VeiculoService;
 import org.example.view.Menu;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         BancoDeDados bancoDeDadosPessoaFisica = new BancoDeDados();
         BancoDeDados bancoDeDadosPessoaJuridica = new BancoDeDados();
-        BancoDeDados bancoDeDadosVeiculo = new BancoDeDados();
+        BancoDeDados bancoDeDadosVeiculoPequenos = new BancoDeDados();
 
         PessoaFisicaRepositorio pessoaFisicaRepositorio = new PessoaFisicaRepositorio(bancoDeDadosPessoaFisica);
         PessoaFisicaService pessoaFisicaService = new PessoaFisicaService(pessoaFisicaRepositorio);
@@ -29,21 +23,10 @@ public class Main {
         PessoaJuridicaRepositorio pessoaJuridicaRepositorio = new PessoaJuridicaRepositorio(bancoDeDadosPessoaJuridica);
         PessoaJuridicaService pessoaJuridicaService = new PessoaJuridicaService(pessoaJuridicaRepositorio);
 
-        VeiculoRepositorio veiculoRepositorio = new VeiculoRepositorio(bancoDeDadosVeiculo);
-        VeiculoService veiculoService = new VeiculoService(veiculoRepositorio);
+        VeiculoRepositorio veiculoPequenoRepositorio = new VeiculoRepositorio(bancoDeDadosVeiculoPequenos);
+        VeiculoService veiculoPequenoService = new VeiculoService(veiculoPequenoRepositorio);
 
-        IniciarArquivos iniciaArquivos = new IniciarArquivos();
-
-        iniciaArquivos.iniciarPasta();
-        iniciaArquivos.iniciarArquivos(pessoaFisicaService.caminhoDoArquivo());
-        iniciaArquivos.iniciarArquivos(pessoaJuridicaService.caminhoDoArquivo());
-        iniciaArquivos.iniciarArquivos(veiculoService.caminhoDoArquivo());
-
-        new LerArquivoPessoFisica().lerArquivo(pessoaFisicaService);
-        new LerArquivoPessoJuridica().lerArquivo(pessoaJuridicaService);
-
-
-        Menu menuPrincipal = new Menu(pessoaFisicaService, pessoaJuridicaService, veiculoService);
+        Menu menuPrincipal = new Menu(pessoaFisicaService, pessoaJuridicaService, veiculoPequenoService);
         menuPrincipal.execute();
 
     }

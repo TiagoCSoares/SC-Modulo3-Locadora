@@ -76,7 +76,7 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String exibir() {
         StringBuilder cliente = new StringBuilder();
-        cliente.append(String.format(("%-14d | %-20s | %-20s | %-5d"),
+        cliente.append(String.format(("%-14s | %-20s | %-20s | %-5d"),
                 getStringCpf(), getNome(),
                 getEndereco(), calcularIdade()));
 

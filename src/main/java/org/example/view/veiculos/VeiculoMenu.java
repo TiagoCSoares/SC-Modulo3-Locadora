@@ -26,7 +26,7 @@ public class VeiculoMenu extends AbstractMenuView {
 
     @Override
     protected Boolean validOption(Integer option) {
-            return option >= 0 && option <= 4;
+            return option >= 0 && option <= 5;
     }
 
     @Override
@@ -46,8 +46,10 @@ public class VeiculoMenu extends AbstractMenuView {
                 break;
             case 5:
                 new ExcluirVeiculoView(veiculoService).execute();
+                break;
             case 0:
                 return;
         }
+        execute();
     }
 }

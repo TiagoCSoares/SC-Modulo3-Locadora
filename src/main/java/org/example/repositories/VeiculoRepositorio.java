@@ -30,10 +30,11 @@ public class VeiculoRepositorio extends AbstractRepositorio {
     @Override
     public List<Veiculo> buscarPorNome(String nome) {
         nome = nome.toLowerCase();
+        List<Veiculo> veiculos = listar();
         List<Veiculo> veiculosEncontrados = new ArrayList<>();
 
         if (veiculosEncontrados != null) {
-            for (Veiculo veiculo : veiculosEncontrados) {
+            for (Veiculo veiculo : veiculos) {
                 if (veiculo.getModelo().toLowerCase().contains(nome)) {
                     veiculosEncontrados.add(veiculo);
                 }
@@ -50,6 +51,5 @@ public class VeiculoRepositorio extends AbstractRepositorio {
     public void gravar(Object objeto) {
         Veiculo veiculo = (Veiculo) objeto;
         super.gravar(objeto);
-        System.out.println(listar());
     }
 }

@@ -1,8 +1,6 @@
 package org.example.view.metodosAuxiliares.cadastrar;
 
-import org.example.entities.VeiculoMedio;
-import org.example.entities.VeiculoPequeno;
-import org.example.entities.VeiculoSUV;
+import org.example.entities.Veiculo;
 import org.example.services.VeiculoService;
 
 import java.util.Scanner;
@@ -14,10 +12,9 @@ public class CadastrarVeiculo {
         this.veiculoService = veiculoService;
     }
 
-    public void cadastrarVeiculo(int option) {
+    public void cadastrarVeiculo(String tipo) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite a placa do Veículo:");
         String placa = veiculoService.definirIdentificador();
 
         System.out.println("Digite o modelo do Veículo:");
@@ -29,38 +26,12 @@ public class CadastrarVeiculo {
         System.out.println("Digite o ano do Veículo:");
         int ano = scanner.nextInt();
 
+        scanner.nextLine();
+
         System.out.println("Digite a cor do Veículo:");
         String cor = scanner.nextLine();
 
-        switch (option) {
-            case 1:
-                VeiculoPequeno veiculoPequeno = new VeiculoPequeno(
-                        placa,
-                        modelo,
-                        marca,
-                        ano,
-                        cor);
-                veiculoService.criar(veiculoPequeno);
-                break;
-            case 2:
-                VeiculoMedio veiculoMedio = new VeiculoMedio(
-                        placa,
-                        modelo,
-                        marca,
-                        ano,
-                        cor);
-                veiculoService.criar(veiculoMedio);
-                break;
-            case 3:
-                VeiculoSUV veiculoSUV = new VeiculoSUV(
-                        placa,
-                        modelo,
-                        marca,
-                        ano,
-                        cor);
-                veiculoService.criar(veiculoSUV);
-                break;
-        }
-
+        Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, cor, tipo);
+        veiculoService.criar(veiculo);
     }
 }

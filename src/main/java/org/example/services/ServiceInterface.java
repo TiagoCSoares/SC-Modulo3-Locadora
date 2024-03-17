@@ -11,7 +11,7 @@ public interface ServiceInterface {
 
     <T> void excluir(T entitie);
 
-    void escreverArquivo();
+    //void escreverArquivo();
 
     List listar();
 

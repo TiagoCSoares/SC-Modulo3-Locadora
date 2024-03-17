@@ -3,6 +3,7 @@ package org.example.view;
 import org.example.services.PessoaFisicaService;
 import org.example.services.PessoaJuridicaService;
 import org.example.services.VeiculoService;
+import org.example.view.aluguel.AluguelMenu;
 import org.example.view.cliente.ClienteMenu;
 import org.example.view.veiculos.VeiculoMenu;
 
@@ -36,19 +37,19 @@ public class Menu extends AbstractMenuView{
         switch (option) {
             case 1:
                 new ClienteMenu(pessoaFisicaService,
-                        pessoaJuridicaService,
-                        veiculoService).execute();
+                        pessoaJuridicaService).execute();
                 break;
             case 2:
                 new VeiculoMenu(veiculoService).execute();
                 break;
-            /*case 3:
-                new LocacaoView().execute();
-                break;*/
+            case 3:
+                new AluguelMenu(veiculoService,  pessoaFisicaService,
+                        pessoaJuridicaService   ).execute();
+                break;
             case 0:
-                pessoaFisicaService.escreverArquivo();
+                /*pessoaFisicaService.escreverArquivo();
                 pessoaJuridicaService.escreverArquivo();
-                veiculoService.escreverArquivo();
+                veiculoService.escreverArquivo();*/
                 System.exit(1);
             default:
                 System.out.println("Opção não disponível");

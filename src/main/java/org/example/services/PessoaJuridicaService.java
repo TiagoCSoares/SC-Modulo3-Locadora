@@ -3,9 +3,7 @@ package org.example.services;
 import org.example.entities.Pessoa;
 import org.example.entities.PessoaJuridica;
 import org.example.repositories.PessoaJuridicaRepositorio;
-import org.example.resources.escreverArquivos.EscreverArquivos;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,12 +48,12 @@ public class PessoaJuridicaService implements ServiceInterface{
     }
 
 
-    @Override
+    /*@Override
     public void escreverArquivo() {
         List<PessoaJuridica> clientes = listar();
         new EscreverArquivos().escreverDados(
                 caminhoDoArquivo(), clientes);
-    }
+    }*/
 
 
     @Override

@@ -16,7 +16,7 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
 
     @Override
     protected Class classeModelo() {
-        return PessoaFisica.class;
+        return PessoaJuridica.class;
     }
 
     @Override
@@ -29,10 +29,11 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
     @Override
     public List<PessoaJuridica> buscarPorNome(String nome) {
         nome = nome.toLowerCase();
+        List<PessoaJuridica> clientes = listar();
         List<PessoaJuridica> clientesEncontrados = new ArrayList<>();
 
         if (clientesEncontrados != null) {
-            for (PessoaJuridica cliente : clientesEncontrados) {
+            for (PessoaJuridica cliente : clientes) {
                 if (cliente.getNome().toLowerCase().contains(nome)) {
                     clientesEncontrados.add(cliente);
                 }
@@ -52,6 +53,5 @@ public class PessoaJuridicaRepositorio extends AbstractRepositorio {
             cliente.setId(bancoDeDados.proximoId());
         }*/
         super.gravar(objeto);
-        System.out.println(listar());
     }
 }

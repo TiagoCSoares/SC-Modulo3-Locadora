@@ -48,8 +48,4 @@ public abstract class Pessoa implements Exibir {
     public void setVeiculos(List<Veiculo> veiculos) {
         this.veiculos = veiculos;
     }
-
-    public String converteCpf() {
-        return "afs";
-    }
 }

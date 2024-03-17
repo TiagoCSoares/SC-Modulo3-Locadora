@@ -24,8 +24,7 @@ public class CadastrarPessoaJuridica implements CadastrarCliente{
         System.out.println("Digite o endereço:");
         String endereco = scanner.nextLine();
 
-        System.out.println("Digite o CNPJ (Apenas Digitos):");
-        Long cnpj = pessoaJuridicaService.definirIdentificador();
+        long cnpj = pessoaJuridicaService.definirIdentificador();
 
         PessoaJuridica pessoa = new PessoaJuridica(cnpj, nome, endereco, null);
         pessoaJuridicaService.criar(pessoa);

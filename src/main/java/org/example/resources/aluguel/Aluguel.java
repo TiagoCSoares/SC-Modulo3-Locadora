@@ -28,17 +28,7 @@ public class Aluguel {
     }
 
 
-    public Double devolverVeiculo(Veiculo veiculo, Pessoa locador, LocalDateTime dataFim) {
-        Double valor = veiculo.calcularValor(dataFim);
-
-        veiculo.devolverVeiculo();
-        locador.desassociarVeiculo(veiculo);
-
-        return valor;
-    }
-
-
-    public Double devolverVeiculo(Veiculo veiculo, Pessoa locador) {
+    /*public Double devolverVeiculo(Veiculo veiculo, Pessoa locador) {
 
         LocalDateTime dataFim = LocalDateTime.now();
 
@@ -48,5 +38,5 @@ public class Aluguel {
         locador.desassociarVeiculo(veiculo);
 
         return valor;
-    }
+    }*/
 }

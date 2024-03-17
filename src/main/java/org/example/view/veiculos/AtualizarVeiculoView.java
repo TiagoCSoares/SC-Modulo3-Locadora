@@ -1,9 +1,6 @@
 package org.example.view.veiculos;
 
 import org.example.entities.Veiculo;
-import org.example.entities.VeiculoMedio;
-import org.example.entities.VeiculoPequeno;
-import org.example.entities.VeiculoSUV;
 import org.example.services.VeiculoService;
 
 import java.util.Scanner;
@@ -37,9 +34,7 @@ public class AtualizarVeiculoView {
             placa = scanner.nextLine();
         }
 
-
-        if(veiculo.getTipo().equals("Pequeno")){
-            Veiculo novoVeiculo = new VeiculoPequeno(placa,
+            Veiculo novoVeiculo = new Veiculo(placa,
                     veiculo.getModelo(),
                     veiculo.getTipo(),
                     veiculo.getAno(),
@@ -48,27 +43,6 @@ public class AtualizarVeiculoView {
                     veiculo.getLocador(),
                     veiculo.getDataInicio()) {
             };
-        } else if(veiculo.getTipo().equals("Medio")) {
-            Veiculo novoVeiculo = new VeiculoMedio(placa,
-                    veiculo.getModelo(),
-                    veiculo.getTipo(),
-                    veiculo.getAno(),
-                    veiculo.getMarca(),
-                    cor,
-                    veiculo.getLocador(),
-                    veiculo.getDataInicio()) {
-            };
-        } else {
-            Veiculo novoVeiculo = new VeiculoSUV(placa,
-                    veiculo.getModelo(),
-                    veiculo.getTipo(),
-                    veiculo.getAno(),
-                    veiculo.getMarca(),
-                    cor,
-                    veiculo.getLocador(),
-                    veiculo.getDataInicio()) {
-            };
-        }
         return veiculo;
     }
 

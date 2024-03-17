@@ -3,7 +3,7 @@ package org.example.services;
 
 import org.example.entities.Veiculo;
 import org.example.repositories.VeiculoRepositorio;
-import org.example.resources.escreverArquivos.EscreverArquivos;
+
 
 import java.util.List;
 import java.util.Scanner;
@@ -49,12 +49,12 @@ public class VeiculoService implements ServiceInterface{
     }
 
 
-    @Override
+    /*@Override
     public void escreverArquivo() {
         List<Veiculo> veiculos = listar();
         new EscreverArquivos().escreverDados(
                 caminhoDoArquivo(), veiculos);
-    }
+    }*/
 
 
     @Override
@@ -131,5 +131,6 @@ public class VeiculoService implements ServiceInterface{
     public Boolean verificarIdentificador(String placa) {
         return (placa.length() == 7);
     }
+
 
 }

@@ -9,12 +9,10 @@ public class ClienteMenu extends AbstractMenuView {
 
     private PessoaFisicaService pessoaFisicaService;
     private PessoaJuridicaService pessoaJuridicaService;
-    private VeiculoService veiculoService;
 
 
     public ClienteMenu(PessoaFisicaService pessoaFisicaService,
-                       PessoaJuridicaService pessoaJuridicaService,
-                       VeiculoService veiculoService) {
+                       PessoaJuridicaService pessoaJuridicaService) {
         super(new String[] {
                 "1 - Cadastrar Cliente",
                 "2 - Listar Clientes",
@@ -25,7 +23,6 @@ public class ClienteMenu extends AbstractMenuView {
         });
         this.pessoaFisicaService = pessoaFisicaService;
         this.pessoaJuridicaService = pessoaJuridicaService;
-        this.veiculoService = veiculoService;
     }
 
     @Override
