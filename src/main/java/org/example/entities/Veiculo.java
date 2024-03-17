@@ -98,7 +98,7 @@ public  class Veiculo implements Exibir {
         return dataInicio;
     }
 
-    public boolean isAlugado() {
+    public boolean getAlugado() {
         return alugado;
     }
 

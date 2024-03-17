@@ -42,6 +42,9 @@ public class AlugarVeiculoView {
         if(!achou) {
             System.out.println("Veiculo não encontrado!");
             return;
+        } else if(veiculoAlugado.getAlugado()) {
+            System.out.println("Veiculo já está alugado!");
+            return;
         }
 
         System.out.println("O locador é: " +
