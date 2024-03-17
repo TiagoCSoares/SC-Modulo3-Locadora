@@ -48,9 +48,11 @@ public class AlugarVeiculoView {
                 "\n1 - Pessoa Física" +
                 "\n2 - Pessoa Jurídica");
         int opcao = scanner.nextInt();
+        scanner.nextLine();
         while(opcao != 1 && opcao != 2) {
             System.out.println("Opção inválida. Digite novamente:");
             opcao = scanner.nextInt();
+            scanner.nextLine();
         }
 
         if(opcao == 1) {

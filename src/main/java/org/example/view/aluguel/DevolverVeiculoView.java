@@ -45,9 +45,10 @@ public class DevolverVeiculoView {
             }
 
             System.out.println("O locador é: " +
-                    "1 - Pessoa Física" +
-                    "2 - Pessoa Jurídica");
+                    "\n1 - Pessoa Física" +
+                    "\n2 - Pessoa Jurídica");
             int opcao = scanner.nextInt();
+            scanner.nextLine();
             while(opcao != 1 && opcao != 2) {
                 System.out.println("Opção inválida. Digite novamente:");
                 opcao = scanner.nextInt();
@@ -55,12 +56,11 @@ public class DevolverVeiculoView {
 
             if(opcao == 1) {
                 long cpf = pessoaFisicaService.definirIdentificador();
-                String cpfString = String.valueOf(cpf);
                 List<PessoaFisica> pessoas = pessoaFisicaService.listar();
                 PessoaFisica achouPessoa = null;
                 boolean achouP = false;
                 for(PessoaFisica pessoa : pessoas) {
-                    if (pessoa.getCpf().equals(cpfString)) {
+                    if (pessoa.getCpf().equals(cpf)) {
                         achouPessoa = pessoa;
                         achouP = true;
                         break;
@@ -86,12 +86,11 @@ public class DevolverVeiculoView {
 
             } else {
                 long cnpj = pessoaJuridicaService.definirIdentificador();
-                String cnpjString = String.valueOf(cnpj);
                 List<PessoaJuridica> pessoas = pessoaJuridicaService.listar();
                 PessoaJuridica achouPessoa = null;
                 boolean achouP = false;
                 for(PessoaJuridica pessoa : pessoas) {
-                    if (pessoa.getCnpj().equals(cnpjString)) {
+                    if (pessoa.getCnpj().equals(cnpj)) {
                         achouPessoa = pessoa;
                         achouP = true;
                         break;
